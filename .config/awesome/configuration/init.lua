@@ -1,0 +1,7 @@
+require "configuration.layouts"
+require "configuration.mousebindings"
+require "configuration.keybindings"
+require "configuration.rules"
+require "configuration.signal"
+require "configuration.errors"
+require "configuration.powermenu"
