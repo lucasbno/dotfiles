@@ -114,7 +114,7 @@ local powerbuttons = wibox.widget {
             }
         end,
         onclick = function ()
-            awful.spawn.with_shell('doas poweroff')
+            awful.spawn.with_shell('poweroff')
         end,
     },
     make_powerbutton {
@@ -131,7 +131,7 @@ local powerbuttons = wibox.widget {
             }
         end,
         onclick = function ()
-            awful.spawn.with_shell('doas reboot')
+            awful.spawn.with_shell('reboot')
         end
     },
     make_powerbutton {

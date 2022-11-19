@@ -1,18 +1,26 @@
 ---------------------------
 -- Default awesome theme --
----------------------------
-
-local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
+local gears = require "gears"
+local gfs = require("gears.filesystem")
+
 local dpi = xresources.apply_dpi
 
-local gfs = require("gears.filesystem")
+-- paths
 local themes_path = gfs.get_themes_dir()
+local assets_path = gfs.get_configuration_dir() .. "assets/"
+
+-- assets
+local icons_path = assets_path .. "icons/"
+local shapes_path = assets_path .. "shapes/"
+local titlebar_assets_path = assets_path .. "titlebar/"
 
 local theme = {}
 
 theme.font         = "Inter 12"
 theme.nerd_font = 'JetBrainsMono NF'
+theme.material_icons = 'Material Icons'
+theme.font_size = '10'
 
 --
 -- base colors
@@ -59,106 +67,110 @@ theme.border_normal = "#535d6c"
 theme.border_focus  = "#84c7d0"
 theme.border_marked = "#91231c"
 
+-- systray
+theme.systray_icon_spacing = dpi(12)
+theme.systray_max_rows = 7
+theme.tray_chevron_up = gears.color.recolor_image(assets_path .. 'tray/up.svg', theme.fg_normal)
+theme.tray_chevron_down = gears.color.recolor_image(assets_path .. 'tray/down.svg', theme.fg_normal)
+
 --taglist
 theme.taglist_fg_focus = "#50fa7b"
 theme.taglist_font = "Inter 15"
 
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
--- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
--- tasklist_[bg|fg]_[focus|urgent]
--- titlebar_[bg|fg]_[normal|focus]
--- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
--- mouse_finder_[color|timeout|animate_timeout|radius|factor]
--- prompt_[fg|bg|fg_cursor|bg_cursor|font]
--- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
--- Example:
---theme.taglist_bg_focus = "#ff0000"
 
--- Generate taglist squares:
--- local taglist_square_size = dpi(4)
--- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
---     taglist_square_size, theme.fg_normal
--- )
--- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
---     taglist_square_size, theme.fg_normal
--- )
+-- menu
+theme.menu_font = theme.font
+theme.menu_submenu_icon = gears.color.recolor_image(shapes_path .. "triangle.png", theme.fg_normal)
+theme.menu_height = dpi(40)
+theme.menu_width = dpi(180)
+theme.menu_bg_focus = theme.bg_lighter
 
--- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
--- notification_[width|height|margin]
--- notification_[border_color|border_width|shape|opacity]
+-- titlebar
+theme.titlebar_bg = theme.bg_contrast
+theme.titlebar_bg_focus = theme.bg_normal
+theme.titlebar_fg = theme.fg_normal
 
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+-- close
+theme.titlebar_close_button_normal = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.dimblack)
+theme.titlebar_close_button_focus = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.red)
 
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
+-- maximized
+theme.titlebar_maximized_button_normal_active = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.dimblack)
+theme.titlebar_maximized_button_normal_inactive = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.dimblack)
+theme.titlebar_maximized_button_focus_active = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.yellow)
+theme.titlebar_maximized_button_focus_inactive = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.yellow)
 
--- Define the image to load
-theme.titlebar_close_button_normal = themes_path.."default/titlebar/close_normal.png"
-theme.titlebar_close_button_focus  = themes_path.."default/titlebar/close_focus.png"
+-- minimize
+theme.titlebar_minimize_button_normal = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.dimblack)
+theme.titlebar_minimize_button_focus = gears.color.recolor_image(titlebar_assets_path .. "circle.png", theme.green)
 
-theme.titlebar_minimize_button_normal = themes_path.."default/titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus  = themes_path.."default/titlebar/minimize_focus.png"
+-- wallpaper
+theme.wallpaper = assets_path .. "wallpaper.jpg"
 
-theme.titlebar_ontop_button_normal_inactive = themes_path.."default/titlebar/ontop_normal_inactive.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path.."default/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_active = themes_path.."default/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_active  = themes_path.."default/titlebar/ontop_focus_active.png"
+-- layouts
+theme.layout_fairh = gears.color.recolor_image(themes_path.."default/layouts/fairhw.png", theme.fg_normal)
+theme.layout_fairv = gears.color.recolor_image(themes_path.."default/layouts/fairvw.png", theme.fg_normal)
+theme.layout_floating  = gears.color.recolor_image(themes_path.."default/layouts/floatingw.png", theme.fg_normal)
+theme.layout_magnifier = gears.color.recolor_image(themes_path.."default/layouts/magnifierw.png", theme.fg_normal)
+theme.layout_max = gears.color.recolor_image(themes_path.."default/layouts/maxw.png", theme.fg_normal)
+theme.layout_fullscreen = gears.color.recolor_image(themes_path.."default/layouts/fullscreenw.png", theme.fg_normal)
+theme.layout_tilebottom = gears.color.recolor_image(themes_path.."default/layouts/tilebottomw.png", theme.fg_normal)
+theme.layout_tileleft   = gears.color.recolor_image(themes_path.."default/layouts/tileleftw.png", theme.fg_normal)
+theme.layout_tile = gears.color.recolor_image(themes_path.."default/layouts/tilew.png", theme.fg_normal)
+theme.layout_tiletop = gears.color.recolor_image(themes_path.."default/layouts/tiletopw.png", theme.fg_normal)
+theme.layout_spiral  = gears.color.recolor_image(themes_path.."default/layouts/spiralw.png", theme.fg_normal)
+theme.layout_dwindle = gears.color.recolor_image(themes_path.."default/layouts/dwindlew.png", theme.fg_normal)
+theme.layout_cornernw = gears.color.recolor_image(themes_path.."default/layouts/cornernww.png", theme.fg_normal)
+theme.layout_cornerne = gears.color.recolor_image(themes_path.."default/layouts/cornernew.png", theme.fg_normal)
+theme.layout_cornersw = gears.color.recolor_image(themes_path.."default/layouts/cornersww.png", theme.fg_normal)
+theme.layout_cornerse = gears.color.recolor_image(themes_path.."default/layouts/cornersew.png", theme.fg_normal)
 
-theme.titlebar_sticky_button_normal_inactive = themes_path.."default/titlebar/sticky_normal_inactive.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path.."default/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_active = themes_path.."default/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_active  = themes_path.."default/titlebar/sticky_focus_active.png"
+-- icons
+theme.launcher_icon = gears.color.recolor_image(icons_path .. "launcher.svg", theme.blue)
+theme.menu_icon = gears.color.recolor_image(icons_path .. "menu.svg", theme.fg_normal)
+theme.hints_icon = gears.color.recolor_image(icons_path .. "hints.svg", theme.blue)
+theme.powerbutton_icon = gears.color.recolor_image(icons_path .. "poweroff.svg", theme.red)
+theme.poweroff_icon = icons_path .. 'poweroff.svg'
 
-theme.titlebar_floating_button_normal_inactive = themes_path.."default/titlebar/floating_normal_inactive.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path.."default/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_active = themes_path.."default/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_active  = themes_path.."default/titlebar/floating_focus_active.png"
+theme.volume_on = gears.color.recolor_image(icons_path .. 'volume-on.svg', theme.fg_normal)
+theme.volume_muted = gears.color.recolor_image(icons_path .. 'volume-muted.svg', theme.fg_normal)
 
-theme.titlebar_maximized_button_normal_inactive = themes_path.."default/titlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
+theme.network_connected = ''
+theme.network_disconnected = '睊'
 
-theme.wallpaper = themes_path.."default/background.png"
+-- pfp
+theme.pfp = assets_path .. 'pfp.png'
 
--- You can use your own layout icons like this:
-theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
-theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
-theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
-theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
-theme.layout_max = themes_path.."default/layouts/maxw.png"
-theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
-theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
-theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
-theme.layout_tile = themes_path.."default/layouts/tilew.png"
-theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
-theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
-theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
-theme.layout_cornernw = themes_path.."default/layouts/cornernww.png"
-theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
-theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
-theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
+-- fallback music
+theme.fallback_music = assets_path .. 'fallback-music.png'
 
--- Generate Awesome icon:
-theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.bg_focus, theme.fg_focus
-)
+-- fallback notification icon
+theme.fallback_notif_icon = gears.color.recolor_image(icons_path .. 'hints.svg', theme.blue)
 
--- Define the icon theme for application icons. If not set then the icons
--- from /usr/share/icons and /usr/share/icons/hicolor will be used.
+-- disable icon theme
 theme.icon_theme = nil
 
-return theme
+-- task preview
+theme.task_preview_widget_border_radius = dpi(7)
+theme.task_preview_widget_bg = theme.bg_normal
+theme.task_preview_widget_border_color = theme.bg_normal
+theme.task_preview_widget_border_width = 0
+theme.task_preview_widget_margin = dpi(10)
 
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
+-- tag preview
+theme.tag_preview_widget_border_radius = dpi(7)
+theme.tag_preview_client_border_radius = dpi(7)
+theme.tag_preview_client_opacity = 0.5
+theme.tag_preview_client_bg = theme.bg_lighter
+theme.tag_preview_client_border_color = theme.blue
+theme.tag_preview_client_border_width = 1
+theme.tag_preview_widget_bg = theme.bg_normal
+theme.tag_preview_widget_border_color = theme.bg_normal
+theme.tag_preview_widget_border_width = 0
+theme.tag_preview_widget_margin = dpi(7)
+
+-- tooltip
+theme.tooltip_bg = theme.bg_normal
+theme.tooltip_fg = theme.fg_normal
+
+return theme

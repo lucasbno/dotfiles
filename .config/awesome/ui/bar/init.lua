@@ -8,6 +8,7 @@ local helpers = require 'helpers'
 local markup = lain.util.markup
 
 require 'ui.bar.calendar'
+require 'ui.bar.tray'
 
 local taglist_buttons = gears.table.join(awful.button({}, 1, function(t)
     t:view_only()
@@ -114,8 +115,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
       {
         lain.widget.cpu {
           settings = function()
-            -- widget:set_markup("#e33a6e", " Cpu " .. cpu_now.usage .. '% ')
-            widget:set_markup(markup.fontfg("Inter 12", beautiful.black,  "  CPU  " .. cpu_now.usage .. "%  "))
+            widget:set_markup(markup.fontfg(beautiful.font, beautiful.black,  "  CPU  " .. cpu_now.usage .. "% "))
           end,
         },
         bg = beautiful.blue,
@@ -123,6 +123,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
       },
       top = 2,
       bottom = 2,
+      forced_width = 86,
       widget = wibox.container.margin,
       --
     }
@@ -157,6 +158,28 @@ screen.connect_signal('request::desktop_decoration', function(s)
       end
   }
 
+
+  local tray_dispatcher = wibox.widget {
+    image = beautiful.tray_chevron_down,
+    forced_height = 30,
+    forced_width = 30,
+    valign = 'center',
+    halign = 'center',
+    widget = wibox.widget.imagebox,
+    screen = screen[1]
+}
+
+  tray_dispatcher:add_button(awful.button({}, 1, function ()
+      awesome.emit_signal('tray::toggle')
+
+      if s.tray.popup.visible then
+        tray_dispatcher.image = beautiful.tray_chevron_up
+      else
+        tray_dispatcher.image = beautiful.tray_chevron_down
+      end
+  end))
+
+
     -- Create the wibox
     s.mywibox = awful.wibar({
         position = "top",
@@ -181,7 +204,13 @@ screen.connect_signal('request::desktop_decoration', function(s)
         nil,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
+            -- wibox.widget.systray(),
+            {
+            tray_dispatcher,
+            right = 10,
+            widget = wibox.container.margin,
+            screen = screen[1]
+            },
             cpu,
             memory,
             -- volume,
