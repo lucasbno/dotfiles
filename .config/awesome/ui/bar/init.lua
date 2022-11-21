@@ -207,7 +207,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
             -- wibox.widget.systray(),
             {
             tray_dispatcher,
-            right = 10,
+            right = 16,
             widget = wibox.container.margin,
             screen = screen[1]
             },
