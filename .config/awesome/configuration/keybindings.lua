@@ -1,6 +1,7 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require 'configuration.powermenu'
+local beautiful = require 'beautiful'
 
 function togglepmenu ()
   awesome.emit_signal('powermenu::toggle')
@@ -183,8 +184,13 @@ client.connect_signal("request::default_keybindings", function()
           {description = "minimize", group = "client"}),
       awful.key({ modkey,           }, "m",
           function (c)
-              c.maximized = not c.maximized
-              c:raise()
+            if c.maximized then
+              awful.screen.focused().padding = { top = "0", bottom = "0", left = "0", right="0" }
+            else
+              awful.screen.focused().padding = { top = beautiful.useless_gap * 2, bottom = beautiful.useless_gap * 2, left = beautiful.useless_gap * 2, right=beautiful.useless_gap * 2 }
+            end
+            c.maximized = not c.maximized
+            c:raise()
           end ,
           {description = "(un)maximize", group = "client"}),
       awful.key({ modkey, "Control" }, "m",

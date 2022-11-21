@@ -1,8 +1,8 @@
+clear mod4
+keycode 108 = Super_R
+add mod4 = Super_R
+
 clear Lock
 keycode 66 = Hyper_L
-! add mod4 = Hyper_L
-keycode 135 = Multi_key
-keycode 108 = Super_L
-keycode 201 = F9
-keycode 202 = F10
-keycode 133 =
+add mod4 = Hyper_L
+keycode 133 = 

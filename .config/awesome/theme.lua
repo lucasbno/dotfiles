@@ -43,14 +43,14 @@ theme.bg_lighter    = "#11131c"
 
 -- elements bg
 theme.bg_focus      = theme.bg_normal
-theme.bg_urgent     = theme.red
+theme.bg_urgent     = theme.bg_normal
 theme.bg_minimize   = theme.bg_normal
 theme.bg_systray    = theme.bg_normal
 
 -- foregrounds
 theme.fg_normal     = "#a5b6cf"
 theme.fg_focus      = theme.fg_nromal
-theme.fg_urgent     = theme.fg_normal
+theme.fg_urgent     = theme.red
 theme.fg_minimize   = theme.fg_normal
 
 -- some actions bg colors

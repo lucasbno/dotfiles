@@ -28,10 +28,11 @@ client.connect_signal("manage", function (c)
     end
 end)
 
-client.connect_signal("property::urgent", function(c)
-  c.minimized = false
-  c:jump_to()
-end)
+-- Move to urgent client
+-- client.connect_signal("property::urgent", function(c)
+--   c.minimized = false
+--   c:jump_to()
+-- end)
 
 
 -- Border and change border color on focus
