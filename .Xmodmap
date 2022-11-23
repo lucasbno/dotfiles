@@ -6,3 +6,5 @@ clear Lock
 keycode 66 = Hyper_L
 add mod4 = Hyper_L
 keycode 133 = 
+keycode 201 = F9
+keycode 202 = F10

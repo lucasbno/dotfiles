@@ -53,7 +53,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
     }
 
     local clock_formats = {
-        hour = '%I:%M %p',
+        hour = '%a, %I:%M %p',
         day = '%d/%m/%Y'
     }
 
@@ -72,9 +72,8 @@ screen.connect_signal('request::desktop_decoration', function(s)
         margins = dpi(7),
         widget = wibox.container.margin
       },
-      -- bg = '#A0FBD7',
       bg = beautiful.green,
-      widget = wibox.container.background
+      widget = wibox.container.background,
     }
 
     date:connect_signal('mouse::enter', function()
@@ -150,14 +149,32 @@ screen.connect_signal('request::desktop_decoration', function(s)
 
     local volume = lain.widget.pulse {
       settings = function()
-          vlevel = volume_now.left .. "-" .. volume_now.right .. "% | " .. volume_now.device
+          vlevel = volume_now.left
           if volume_now.muted == "yes" then
-              vlevel = vlevel .. " M"
+              vlevel = "M"
           end
-          widget:set_markup(lain.util.markup("#7493d2", vlevel))
+          widget:set_markup(lain.util.markup("#7493d2", ' '.. vlevel))
       end
   }
 
+  volume.widget:buttons(awful.util.table.join(
+    awful.button({}, 3, function() -- middle click
+        os.execute(string.format("pactl set-sink-volume %s 100%%", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 1, function() -- right click
+        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("pactl set-sink-volume %s +1%%", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("pactl set-sink-volume %s -1%%", volume.device))
+        volume.update()
+    end)
+))
 
   local tray_dispatcher = wibox.widget {
     image = beautiful.tray_chevron_down,
@@ -206,6 +223,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
             {
+            -- volume,
             tray_dispatcher,
             right = 16,
             widget = wibox.container.margin,
@@ -213,7 +231,6 @@ screen.connect_signal('request::desktop_decoration', function(s)
             },
             cpu,
             memory,
-            -- volume,
             date,
         }
     }
