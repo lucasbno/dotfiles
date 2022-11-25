@@ -127,6 +127,14 @@ screen.connect_signal('request::desktop_decoration', function(s)
       --
     }
 
+  local tray = wibox.widget {
+    {
+      widget = wibox.widget.systray
+    },
+    top = 4,
+    widget = wibox.container.margin
+  }
+
     local memory = wibox.widget {
       {
         lain.widget.mem {
@@ -222,6 +230,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
+            tray,
             {
             -- volume,
             -- tray_dispatcher,
