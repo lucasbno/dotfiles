@@ -19,36 +19,15 @@ plugins=(tmux fzf zsh-autosuggestions fast-syntax-highlighting)
 alias copy='xclip -selection clipboard'
 alias c='codium'
 alias code='codium'
+alias git branch
+alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
 
 bindkey '^f' fzf-cd-widget
 
-##################################
-########### SPACESHIP ############
-##################################
-
 source $ZSH/oh-my-zsh.sh
 
-# SPACESHIP_PROMPT_ORDER=(
-#   user          # Username section
-#   dir           # Current directory section
-#   host          # Hostname section
-#   git           # Git section (git_branch + git_status)
-#   hg            # Mercurial section (hg_branch  + hg_status)
-#   exec_time     # Execution time
-#   line_sep      # Line break
-#   jobs          # Background jobs indicator
-#   exit_code     # Exit code section
-#   char          # Prompt character
-# )
-#
-# SPACESHIP_USER_SHOW="always" # Shows System user name before directory name
-#
-# SPACESHIP_PROMPT_ADD_NEWLINE=false
-# # SPACESHIP_PROMPT_SEPARATE_LINE=false # Make the prompt span across two lines
-# # SPACESHIP_DIR_TRUNC=1 # Shows only the last directory folder name
-#
-# SPACESHIP_CHAR_SYMBOL="❯"
-# SPACESHIP_CHAR_SUFFIX=""
 eval "$(starship init zsh)"
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX="$HOME/.local/bin/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+foo() { if [ "$1" = "bar" ]; then echo "doing something..."; fi; }
