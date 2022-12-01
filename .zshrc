@@ -13,7 +13,7 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 ######### PLUGINS/ALIAS ##########
 ##################################
 
-#ZSH_THEME="norm"
+# ZSH_THEME="awesomepanda"
 plugins=(tmux fzf zsh-autosuggestions fast-syntax-highlighting)
 
 alias copy='xclip -selection clipboard'

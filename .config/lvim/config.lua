@@ -13,7 +13,7 @@ local components = require("lvim.core.lualine.components")
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "dracula"
 
 lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.sections.lualine_x = {components.diagnostics,components.lsp}
@@ -34,6 +34,12 @@ lvim.keys.normal_mode["<C-p>"] = "<cmd> Telescope find_files <CR>"
 
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
+
+lvim.builtin.which_key.mappings["f"] = {
+  name = "Telescope",
+  f = {"<cmd> Telescope find_files <CR>", "Find files"},
+  w = {"<cmd> Telescope live_grep <CR>", "Search codebase"}
+}
 
 --LSP
 lvim.lsp.buffer_mappings.normal_mode["gd"] = {  "<cmd>Telescope lsp_definitions<cr>", "Goo to Definiton" }
@@ -87,6 +93,8 @@ lvim.lsp.buffer_mappings.normal_mode["gi"] = {  "<cmd>Telescope lsp_implementati
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+--
+lvim.builtin.lualine.options.theme = "dracula-nvim"
 
 --Telescope--
 lvim.builtin.telescope.pickers.find_files.previewer = nil
@@ -253,7 +261,7 @@ lvim.plugins = {
     end,
   },
   {
-    "dracula/vim"
+    "LucasBno/dracula.nvim"
   }
 }
 
