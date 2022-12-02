@@ -1,11 +1,9 @@
 format = """
 $username\
-$hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
-$cmd_duration\
 $line_break"""
 
 add_newline = false
@@ -15,6 +13,13 @@ style = "bold cyan"
 truncation_length = 4
 read_only=" "
 
+[username]
+style_user = "yellow bold"
+style_root = "black bold"
+format = "[$user]($style) in "
+disabled = false
+show_always = true
+
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
@@ -22,10 +27,10 @@ vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "bold red"
+style = "bold black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed )]($style)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](red) ($ahead_behind$stashed )]($style)"
 style = "cyan"
 conflicted = "​"
 untracked = "​"
