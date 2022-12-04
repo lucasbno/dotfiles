@@ -37,7 +37,8 @@ theme.cyan = '#93cee9'
 theme.aqua = '#7bd9e6'
 
 -- backgrounds
-theme.bg_normal     = "#0d0f18"
+-- theme.bg_normal     = "#0d0f18"
+theme.bg_normal     = "#090B0D"
 theme.bg_contrast   = "#0f111a"
 theme.bg_lighter    = "#11131c"
 
