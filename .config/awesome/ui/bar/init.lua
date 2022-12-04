@@ -76,13 +76,17 @@ screen.connect_signal('request::desktop_decoration', function(s)
       widget = wibox.container.background,
     }
 
-    date:connect_signal('mouse::enter', function()
-        awesome.emit_signal('calendar::visibility', true)
-    end)
+    -- date:connect_signal('mouse::enter', function()
+    --     awesome.emit_signal('calendar::visibility', true)
+    -- end)
 
-    date:connect_signal('mouse::leave', function()
-        awesome.emit_signal('calendar::visibility', false)
-    end)
+    -- date:connect_signal('mouse::leave', function()
+    --     awesome.emit_signal('calendar::visibility', false)
+    -- end)
+
+    date:add_button(awful.button({},3, function()
+      awesome.emit_signal('calendar::toggle')
+    end ))
 
     date:add_button(awful.button({}, 1, function()
         clock.format = clock.format == clock_formats.hour and clock_formats.day or clock_formats.hour
