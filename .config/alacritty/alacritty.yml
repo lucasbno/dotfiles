@@ -32,6 +32,7 @@ colors:
   primary:
     # background: '#0d0f18'
     background: '#090B0D'
+    # background: '#101419'
     foreground: '#a5b6cf'
   cursor:
     text:   CellForeground
