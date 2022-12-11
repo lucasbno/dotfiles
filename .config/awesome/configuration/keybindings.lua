@@ -1,12 +1,13 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
-require 'configuration.powermenu'
 local beautiful = require 'beautiful'
+require 'configuration.powermenu'
+require("../user")
+require("../ui/menu")
 
 function togglepmenu ()
   awesome.emit_signal('powermenu::toggle')
 end
-
 
 local function set_keybindings ()
   awful.keyboard.append_global_keybindings({

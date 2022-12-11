@@ -208,6 +208,9 @@ screen.connect_signal('request::desktop_decoration', function(s)
       end
   end))
 
+  function custom_shape(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, RADIUS)
+  end
 
     -- Create the wibox
     s.mywibox = awful.wibar({
@@ -217,7 +220,8 @@ screen.connect_signal('request::desktop_decoration', function(s)
           top = 8,
           left= 8,
           right= 8,
-        }
+        },
+        shape = helpers.mkroundedrect(4),
     })
 
     -- Add widgets to the wibox

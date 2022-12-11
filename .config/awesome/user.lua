@@ -6,3 +6,5 @@ editor = os.getenv("EDITOR") or "nvim"
 visual_editor = "codium"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
+file_manager = "thunar"
+screenshot_tool = "flameshot gui"

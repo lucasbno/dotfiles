@@ -19,9 +19,9 @@ plugins=(tmux fzf zsh-autosuggestions fast-syntax-highlighting)
 alias copy='xclip -selection clipboard'
 alias c='codium'
 alias code='codium'
-alias git branch
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
 alias nvim='lvim'
+alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
 bindkey '^f' fzf-cd-widget
 
@@ -32,3 +32,4 @@ eval "$(starship init zsh)"
 export N_PREFIX="$HOME/.local/bin/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 foo() { if [ "$1" = "bar" ]; then echo "doing something..."; fi; }
+source /home/lucasbno/.tmc-autocomplete.sh || true
