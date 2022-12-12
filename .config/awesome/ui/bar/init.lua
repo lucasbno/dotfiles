@@ -12,11 +12,11 @@ require 'ui.bar.tray'
 
 local taglist_buttons = gears.table.join(awful.button({}, 1, function(t)
     t:view_only()
-end), awful.button({modkey}, 1, function(t)
+end), awful.button({ modkey }, 1, function(t)
     if client.focus then
         client.focus:move_to_tag(t)
     end
-end), awful.button({}, 3, awful.tag.viewtoggle), awful.button({modkey}, 3, function(t)
+end), awful.button({}, 3, awful.tag.viewtoggle), awful.button({ modkey }, 3, function(t)
     if client.focus then
         client.focus:toggle_tag(t)
     end
@@ -29,7 +29,7 @@ end))
 screen.connect_signal('request::desktop_decoration', function(s)
     -- awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
-    awful.tag({" 1 ", " 2 ", " 3 ", " 4 ", " 5 "}, s, awful.layout.layouts[1])
+    awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -63,17 +63,17 @@ screen.connect_signal('request::desktop_decoration', function(s)
     }
 
     local date = wibox.widget {
-      {
         {
-            clock,
-            fg = beautiful.black,
-            widget = wibox.container.background
+            {
+                clock,
+                fg = beautiful.black,
+                widget = wibox.container.background
+            },
+            margins = dpi(7),
+            widget = wibox.container.margin
         },
-        margins = dpi(7),
-        widget = wibox.container.margin
-      },
-      bg = beautiful.green,
-      widget = wibox.container.background,
+        bg = beautiful.green,
+        widget = wibox.container.background,
     }
 
     -- date:connect_signal('mouse::enter', function()
@@ -84,9 +84,9 @@ screen.connect_signal('request::desktop_decoration', function(s)
     --     awesome.emit_signal('calendar::visibility', false)
     -- end)
 
-    date:add_button(awful.button({},3, function()
-      awesome.emit_signal('calendar::toggle')
-    end ))
+    date:add_button(awful.button({}, 3, function()
+        awesome.emit_signal('calendar::toggle')
+    end))
 
     date:add_button(awful.button({}, 1, function()
         clock.format = clock.format == clock_formats.hour and clock_formats.day or clock_formats.hour
@@ -108,125 +108,161 @@ screen.connect_signal('request::desktop_decoration', function(s)
     end
 
     lain.widget.cpu {
-      settings = function()
-          widget:set_markup("Cpu " .. cpu_now.usage .. '%')
-      end
+        settings = function()
+            widget:set_markup("Cpu " .. cpu_now.usage .. '%')
+        end
     }
-
 
     local cpu = wibox.widget {
-      {
-        lain.widget.cpu {
-          settings = function()
-            widget:set_markup(markup.fontfg(beautiful.font, beautiful.black,  "  CPU  " .. cpu_now.usage .. "% "))
-          end,
+        {
+            lain.widget.cpu {
+                settings = function()
+                    widget:set_markup(markup.fontfg(beautiful.font, beautiful.black, "  CPU  " .. cpu_now.usage .. "% "))
+                end,
+            },
+            bg = beautiful.blue,
+            widget = wibox.container.background
         },
-        bg = beautiful.blue,
-        widget = wibox.container.background
-      },
-      top = 2,
-      bottom = 2,
-      forced_width = 86,
-      widget = wibox.container.margin,
-      --
+        top = 2,
+        bottom = 2,
+        forced_width = 86,
+        widget = wibox.container.margin,
+        --
     }
 
-  local tray = wibox.widget {
-    {
-      widget = wibox.widget.systray
-    },
-    top = 4,
-    widget = wibox.container.margin
-  }
+    local tray = wibox.widget {
+        {
+            widget = wibox.widget.systray
+        },
+        top = 4,
+        widget = wibox.container.margin
+    }
 
     local memory = wibox.widget {
-      {
-        lain.widget.mem {
-          settings = function()
-              widget:set_markup(" Memory " .. string.format(
-                "%.1f",
-                mem_now.used/1000
-              ) .. 'G ' )
-          end,
+        {
+            lain.widget.mem {
+                settings = function()
+                    widget:set_markup(" Memory " .. string.format(
+                        "%.1f",
+                        mem_now.used / 1000
+                    ) .. 'G ')
+                end,
+            },
+            bg = beautiful.bg,
+            widget = wibox.container.background
         },
-        bg = beautiful.bg,
-        widget = wibox.container.background
-      },
-      left = 14,
-      right = 14,
-      top = 2,
-      bottom = 2,
-      widget = wibox.container.margin,
+        left = 14,
+        right = 14,
+        top = 2,
+        bottom = 2,
+        widget = wibox.container.margin,
     }
 
     local volume = lain.widget.pulse {
-      settings = function()
-          vlevel = volume_now.left
-          if volume_now.muted == "yes" then
-              vlevel = "M"
-          end
-          widget:set_markup(lain.util.markup("#7493d2", ' '.. vlevel))
-      end
-  }
+        settings = function()
+            vlevel = volume_now.left
+            if volume_now.muted == "yes" then
+                vlevel = "M"
+            end
+            widget:set_markup(lain.util.markup("#7493d2", ' ' .. vlevel))
+        end
+    }
 
-  volume.widget:buttons(awful.util.table.join(
-    awful.button({}, 3, function() -- middle click
-        os.execute(string.format("pactl set-sink-volume %s 100%%", volume.device))
-        volume.update()
-    end),
-    awful.button({}, 1, function() -- right click
-        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
-        volume.update()
-    end),
-    awful.button({}, 4, function() -- scroll up
-        os.execute(string.format("pactl set-sink-volume %s +1%%", volume.device))
-        volume.update()
-    end),
-    awful.button({}, 5, function() -- scroll down
-        os.execute(string.format("pactl set-sink-volume %s -1%%", volume.device))
-        volume.update()
-    end)
-))
+    volume.widget:buttons(awful.util.table.join(
+        awful.button({}, 3, function() -- middle click
+            os.execute(string.format("pactl set-sink-volume %s 100%%", volume.device))
+            volume.update()
+        end),
+        awful.button({}, 1, function() -- right click
+            os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
+            volume.update()
+        end),
+        awful.button({}, 4, function() -- scroll up
+            os.execute(string.format("pactl set-sink-volume %s +1%%", volume.device))
+            volume.update()
+        end),
+        awful.button({}, 5, function() -- scroll down
+            os.execute(string.format("pactl set-sink-volume %s -1%%", volume.device))
+            volume.update()
+        end)
+    ))
 
-  local tray_dispatcher = wibox.widget {
-    image = beautiful.tray_chevron_down,
-    forced_height = 30,
-    forced_width = 30,
-    valign = 'center',
-    halign = 'center',
-    widget = wibox.widget.imagebox,
-    screen = screen[1]
-}
+    local tray_dispatcher = wibox.widget {
+        image = beautiful.tray_chevron_down,
+        forced_height = 30,
+        forced_width = 30,
+        valign = 'center',
+        halign = 'center',
+        widget = wibox.widget.imagebox,
+        screen = screen[1]
+    }
 
-  tray_dispatcher:add_button(awful.button({}, 1, function ()
-      awesome.emit_signal('tray::toggle')
+    tray_dispatcher:add_button(awful.button({}, 1, function()
+        awesome.emit_signal('tray::toggle')
 
-      if s.tray.popup.visible then
-        tray_dispatcher.image = beautiful.tray_chevron_up
-      else
-        tray_dispatcher.image = beautiful.tray_chevron_down
-      end
-  end))
+        if s.tray.popup.visible then
+            tray_dispatcher.image = beautiful.tray_chevron_up
+        else
+            tray_dispatcher.image = beautiful.tray_chevron_down
+        end
+    end))
 
-  function custom_shape(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, RADIUS)
-  end
+    function custom_shape(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, RADIUS)
+    end
+
+    s.mytasklist = awful.widget.tasklist {
+        screen          = s,
+        filter          = awful.widget.tasklist.filter.focused,
+        buttons         = tasklist_buttons,
+        layout          = {
+            spacing        = 10,
+            spacing_widget = {
+                {
+                    forced_width = 5,
+                    shape        = gears.shape.circle,
+                    widget       = wibox.widget.separator
+                },
+                valign = 'center',
+                halign = 'center',
+                widget = wibox.container.place,
+            },
+            layout         = wibox.layout.flex.horizontal
+        },
+        widget_template = {
+            {
+                {
+                    {
+                        id     = 'text_role',
+                        widget = wibox.widget.textbox,
+                    },
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                left   = 10,
+                right  = 10,
+                widget = wibox.container.margin
+            },
+            id     = 'background_role',
+            widget = wibox.container.background,
+        },
+    }
 
     -- Create the wibox
     s.mywibox = awful.wibar({
         position = "top",
         screen = s,
         margins = {
-          top = 8,
-          left= 8,
-          right= 8,
+            top = 8,
+            left = 8,
+            right = 8,
         },
         shape = helpers.mkroundedrect(4),
     })
 
     -- Add widgets to the wibox
-    s.mywibox:setup{
+    s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
+        expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
@@ -240,11 +276,11 @@ screen.connect_signal('request::desktop_decoration', function(s)
             -- wibox.widget.systray(),
             tray,
             {
-            -- volume,
-            -- tray_dispatcher,
-            right = 16,
-            widget = wibox.container.margin,
-            screen = screen[1]
+                -- volume,
+                -- tray_dispatcher,
+                right = 16,
+                widget = wibox.container.margin,
+                screen = screen[1]
             },
             cpu,
             memory,
@@ -252,4 +288,3 @@ screen.connect_signal('request::desktop_decoration', function(s)
         }
     }
 end)
-
