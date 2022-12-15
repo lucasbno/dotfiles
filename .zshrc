@@ -24,6 +24,7 @@ alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
 alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
 bindkey '^f' fzf-cd-widget
+bindkey -s "^g" 'git-main^M'
 
 source $ZSH/oh-my-zsh.sh
 

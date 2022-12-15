@@ -20,9 +20,10 @@
     /* background:     #0a0c13; */
     /* background-alt: #0a0c13; */
     /* selected:       #0a0c13; */
-    background:     #0d0f18;
-    background-alt: #0d0f18;
-    selected:       #0d0f18;
+    /* background:     #0d0f18; */
+    background:     #090B0D;
+    background-alt: #090B0D;
+    selected:       #090B0D;
     foreground:     #FFFFFF;
     active:         #FFFFFF;
     urgent:         #FFFFFF;

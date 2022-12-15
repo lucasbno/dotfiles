@@ -96,8 +96,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
         screen = s
     }
 
-    -- remove built-in tooltip.
-    base_layoutbox._layoutbox_tooltip:remove_from_object(base_layoutbox)
+    -- remove built-in tooltip. base_layoutbox._layoutbox_tooltip:remove_from_object(base_layoutbox)
 
     -- create button container
     local layoutbox = helpers.mkbtn(base_layoutbox, beautiful.bg_normal, beautiful.dimblack)
@@ -256,7 +255,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
             left = 8,
             right = 8,
         },
-        shape = helpers.mkroundedrect(4),
+        -- shape = helpers.mkroundedrect(4),
     })
 
     -- Add widgets to the wibox

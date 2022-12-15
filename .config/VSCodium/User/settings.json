@@ -108,8 +108,8 @@
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.cursorBlinking": "solid",
   "[java]": {
-    "editor.defaultFormatter": "redhat.java",
-    "editor.parameterHints.enabled": false
+    "editor.defaultFormatter": "redhat.java"
+    // "editor.parameterHints.enabled": false
   },
   "testMyCode.downloadOldSubmission": true,
   "testMyCode.hideMetaFiles": true,
