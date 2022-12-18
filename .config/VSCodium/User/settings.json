@@ -106,7 +106,7 @@
     "editor.tabSize": 4
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.cursorBlinking": "solid",
+  "editor.cursorBlinking": "smooth",
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
     // "editor.parameterHints.enabled": false

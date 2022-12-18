@@ -16,10 +16,15 @@ lvim.format_on_save.enabled = false
 lvim.colorscheme = "dracula"
 
 lvim.builtin.lualine.style = "lvim"
-lvim.builtin.lualine.sections.lualine_x = {components.diagnostics,components.lsp}
-lvim.builtin.lualine.sections.lualine_z = {components.location}
+lvim.builtin.lualine.sections.lualine_x = { components.diagnostics, components.lsp }
+lvim.builtin.lualine.sections.lualine_z = { components.location }
 lvim.builtin.lualine.sections.lualine_y = {}
 
+-- lvim.format_on_save = true
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -34,17 +39,19 @@ lvim.keys.normal_mode["<C-p>"] = "<cmd> Telescope find_files <CR>"
 
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
+lvim.keys.visual_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
 
 lvim.builtin.which_key.mappings["f"] = {
-  name = "Telescope",
-  f = {"<cmd> Telescope find_files <CR>", "Find files"},
-  w = {"<cmd> Telescope live_grep <CR>", "Search codebase"}
+    name = "Telescope",
+    f = { "<cmd> Telescope find_files <CR>", "Find files" },
+    w = { "<cmd> Telescope live_grep <CR>", "Search codebase" }
 }
 
 --LSP
-lvim.lsp.buffer_mappings.normal_mode["gd"] = {  "<cmd>Telescope lsp_definitions<cr>", "Goo to Definiton" }
-lvim.lsp.buffer_mappings.normal_mode["gr"] = {  "<cmd>Telescope lsp_references<cr>", "Goo to Definiton" }
-lvim.lsp.buffer_mappings.normal_mode["gi"] = {  "<cmd>Telescope lsp_implementations<cr>", "Goo to Definiton" }
+lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Telescope lsp_definitions<cr>", "Goo to Definiton" }
+lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Telescope lsp_references<cr>", "Goo to Definiton" }
+lvim.lsp.buffer_mappings.normal_mode["gi"] = { "<cmd>Telescope lsp_implementations<cr>", "Goo to Definiton" }
 
 -- lvim.keys.normal_mode["<space>m"] =  "<cmd> Telescope lsp_references <CR>"
 -- lvim.keys.normal_mode["gi"] =  "<cmd> Telescope lsp_implementations <CR>"
@@ -100,40 +107,40 @@ lvim.builtin.lualine.options.theme = "dracula-nvim"
 lvim.builtin.telescope.pickers.find_files.previewer = nil
 
 lvim.builtin.telescope = {
-  active = true,
-  defaults = {
-    layout_strategy = "horizontal",
-    sorting_strategy = "ascending",
-    prompt_position = "top",
-    layout_config = {
-      horizontal = {
+    active = true,
+    defaults = {
+        layout_strategy = "horizontal",
+        sorting_strategy = "ascending",
         prompt_position = "top",
-        preview_width = 0.55,
-        results_width = 0.8,
-      },
-      vertical = {
-        mirror = false,
-      },
-      width = 0.87,
-      height = 0.80,
-      preview_cutoff = 120,
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+                preview_width = 0.55,
+                results_width = 0.8,
+            },
+            vertical = {
+                mirror = false,
+            },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
+        },
     },
-  },
-  pickers = {
-    find_files = {
-      layout_config = { width = 0.80, height = 0.80, preview_width = 0.60, prompt_position = "top" },
-      previewer = nil
+    pickers = {
+        find_files = {
+            layout_config = { width = 0.80, height = 0.80, preview_width = 0.60, prompt_position = "top" },
+            previewer = nil
+        }
     }
-  }
 }
 
 lvim.builtin.telescope.defaults.prompt_prefix = "  "
 lvim.builtin.telescope.defaults.selection_caret = "❯ "
 
 lvim.builtin.telescope.defaults.borderchars = {
-  prompt = { " ", " ", " ", " ", " ", " ", " ", " " },
-  results = { " ", " ", " ", " ", " ", " ", " ", " " },
-  preview = { " ", " ", " ", " ", " ", " ", " ", " " },
+    prompt = { " ", " ", " ", " ", " ", " ", " ", " " },
+    results = { " ", " ", " ", " ", " ", " ", " ", " " },
+    preview = { " ", " ", " ", " ", " ", " ", " ", " " },
 }
 
 
@@ -156,18 +163,18 @@ lvim.keys.normal_mode["<C-t>"] = "<cmd>ToggleTerm<cr>"
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
+    "bash",
+    "c",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "typescript",
+    "tsx",
+    "css",
+    "rust",
+    "java",
+    "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -215,20 +222,25 @@ lvim.builtin.treesitter.highlight.enable = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+    { command = "black", filetypes = { "python" } },
+    { command = "isort", filetypes = { "python" } },
+    {
+        -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+        command = "prettier",
+        ---@usage arguments to pass to the formatter
+        -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+        extra_args = { "--print-with", "100" },
+        ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+        filetypes = { "typescript", "typescriptreact" },
+    },
+    {
+        command = "prettier",
+        extra_args = { "--tab-width", "4" },
+        filetypes = { "java" },
+    },
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
@@ -250,20 +262,21 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-  {
-    "decaycs/decay.nvim",
-    as = "decay",
-  },
-  {
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup()
-    end,
-  },
-  {
-    "LucasBno/dracula.nvim"
-  },
-  {'nyoom-engineering/oxocarbon.nvim'}
+    {
+        "decaycs/decay.nvim",
+        as = "decay",
+    },
+    {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup()
+        end,
+    },
+    {
+        "LucasBno/dracula.nvim"
+    },
+    { 'nyoom-engineering/oxocarbon.nvim' },
+    ins
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
