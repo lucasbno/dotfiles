@@ -1,5 +1,5 @@
 terminal = "alacritty"
-explorer = "ranger"
+explorer = "nautilus"
 browser = "firefox"
 launcher = "rofi - show drun"
 editor = os.getenv("EDITOR") or "nvim"

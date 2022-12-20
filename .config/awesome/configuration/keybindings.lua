@@ -16,6 +16,8 @@ local function set_keybindings ()
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "e", function () awful.spawn(explorer) end,
+              {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "d", function () awful.spawn.with_shell("~/.config/rofi/launcher/launcher.sh") end,
               {description = "open rofi launcher", group = "launcher"}),
     awful.key({                   }, "Print", function () awful.spawn.with_shell("flameshot gui") end,
