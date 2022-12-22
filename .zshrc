@@ -21,7 +21,7 @@ alias c='codium'
 alias code='codium'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
 alias nvim='lvim'
-alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
+# alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
 bindkey '^f' fzf-cd-widget
 bindkey -s "^g" 'git-main^M'
