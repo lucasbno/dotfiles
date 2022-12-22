@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+CHOOSEN=$(gum choose "git-commit" "git-branch" "git-log" "git-pr")
+$CHOOSEN
