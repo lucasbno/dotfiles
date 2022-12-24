@@ -3,7 +3,6 @@
   local gears = require("gears")
   local awful = require("awful")
   local beautiful = require("beautiful")
-  local menubar = require("menubar")
 
   require("awful.autofocus")
   beautiful.init("/home/lucasbno/.config/awesome/theme.lua")
@@ -11,5 +10,10 @@
   require "user"
   require "configuration"
   require "ui"
+
+  mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "open terminal", terminal }
+                                  }
+                        })
 
   awful.spawn.with_shell("/home/lucasbno/.config/awesome/autorun.sh")

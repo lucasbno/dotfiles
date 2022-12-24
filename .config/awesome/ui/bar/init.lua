@@ -8,7 +8,7 @@ local helpers = require 'helpers'
 local markup = lain.util.markup
 
 require 'ui.bar.calendar'
-require 'ui.bar.tray'
+-- require 'ui.bar.tray'
 
 local taglist_buttons = gears.table.join(awful.button({}, 1, function(t)
     t:view_only()
@@ -133,7 +133,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
         {
             widget = wibox.widget.systray
         },
-        top = 4,
+        top = 1,
         widget = wibox.container.margin
     }
 

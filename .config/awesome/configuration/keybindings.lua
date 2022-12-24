@@ -3,7 +3,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local beautiful = require 'beautiful'
 require 'configuration.powermenu'
 require("../user")
-require("../ui/menu")
 
 function togglepmenu ()
   awesome.emit_signal('powermenu::toggle')

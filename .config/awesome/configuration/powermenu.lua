@@ -59,9 +59,10 @@ local function make_powerbutton (opts)
 
     -- @DEFAULT_VALUE -> key = `bg`
     opts.bg = opts.bg and opts.bg or beautiful.bg_lighter
+    opts.bg_transparent = "#00000000"
 
     local call_widget = function ()
-        local icon_font = beautiful.nerd_font .. ' 32'
+        local icon_font = beautiful.nerd_font .. ' 42'
         local align = 'center'
 
         if opts.widget ~= nil then
@@ -81,13 +82,13 @@ local function make_powerbutton (opts)
             widget = wibox.container.margin,
         },
         widget = wibox.container.background,
-        bg = opts.bg,
+        bg = opts.bg_transparent,
         shape = gears.shape.circle,
     }
 
     -- add hover support just when background is bg_lighter
     if opts.bg == beautiful.bg_lighter then
-        helpers.add_hover(button, beautiful.bg_lighter, beautiful.dimblack)
+        helpers.add_hover(button, opts.bg_transparent, beautiful.dimblack)
     end
 
     button:add_button(awful.button({}, 1, function ()

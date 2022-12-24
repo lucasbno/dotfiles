@@ -14,13 +14,12 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 ##################################
 
 ZSH_THEME="awesomepanda"
-plugins=(tmux fzf zsh-autosuggestions fast-syntax-highlighting)
+plugins=(fzf zsh-autosuggestions fast-syntax-highlighting)
 
 alias copy='xclip -selection clipboard'
 alias c='codium'
 alias code='codium'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
-alias nvim='lvim'
 # alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
 bindkey '^f' fzf-cd-widget
@@ -33,4 +32,4 @@ source $ZSH/oh-my-zsh.sh
 export N_PREFIX="$HOME/.local/bin/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 foo() { if [ "$1" = "bar" ]; then echo "doing something..."; fi; }
-source /home/lucasbno/.tmc-autocomplete.sh || true
+#source /home/lucasbno/.tmc-autocomplete.sh || true

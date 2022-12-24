@@ -13,12 +13,11 @@ local assets_path = gfs.get_configuration_dir() .. "assets/"
 -- assets
 local icons_path = assets_path .. "icons/"
 local shapes_path = assets_path .. "shapes/"
-local titlebar_assets_path = assets_path .. "titlebar/"
 
 local theme = {}
 
 theme.font         = "Inter 12"
-theme.nerd_font = 'JetBrainsMono NF'
+theme.nerd_font = 'Iosevka Nerd Font 13'
 theme.material_icons = 'Material Icons'
 theme.font_size = '10'
 
@@ -41,7 +40,7 @@ theme.aqua = '#7bd9e6'
 -- theme.bg_normal     = "#101419"
 theme.bg_normal     = "#090B0D"
 theme.bg_contrast   = "#0f111a"
-theme.bg_lighter    = "#11131c"
+-- theme.bg_lighter    = "#11131c"
 
 -- elements bg
 theme.bg_focus      = theme.bg_normal
@@ -79,13 +78,6 @@ theme.tray_chevron_down = gears.color.recolor_image(assets_path .. 'tray/down.sv
 theme.taglist_fg_focus = "#50fa7b"
 theme.taglist_font = "Inter 15"
 
--- menu
-theme.menu_font = theme.font
-theme.menu_submenu_icon = gears.color.recolor_image(shapes_path .. "triangle.png", theme.fg_normal)
-theme.menu_height = dpi(40)
-theme.menu_width = dpi(180)
-theme.menu_bg_focus = theme.bg_lighter
-
 -- layouts
 theme.layout_fairh = gears.color.recolor_image(themes_path.."default/layouts/fairhw.png", theme.fg_normal)
 theme.layout_fairv = gears.color.recolor_image(themes_path.."default/layouts/fairvw.png", theme.fg_normal)
@@ -103,13 +95,6 @@ theme.layout_cornernw = gears.color.recolor_image(themes_path.."default/layouts/
 theme.layout_cornerne = gears.color.recolor_image(themes_path.."default/layouts/cornernew.png", theme.fg_normal)
 theme.layout_cornersw = gears.color.recolor_image(themes_path.."default/layouts/cornersww.png", theme.fg_normal)
 theme.layout_cornerse = gears.color.recolor_image(themes_path.."default/layouts/cornersew.png", theme.fg_normal)
-
--- icons
-theme.launcher_icon = gears.color.recolor_image(icons_path .. "launcher.svg", theme.blue)
-theme.menu_icon = gears.color.recolor_image(icons_path .. "menu.svg", theme.fg_normal)
-theme.hints_icon = gears.color.recolor_image(icons_path .. "hints.svg", theme.blue)
-theme.powerbutton_icon = gears.color.recolor_image(icons_path .. "poweroff.svg", theme.red)
-theme.poweroff_icon = icons_path .. 'poweroff.svg'
 
 theme.volume_on = gears.color.recolor_image(icons_path .. 'volume-on.svg', theme.fg_normal)
 theme.volume_muted = gears.color.recolor_image(icons_path .. 'volume-muted.svg', theme.fg_normal)

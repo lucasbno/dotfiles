@@ -30,7 +30,7 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": false,
-  "workbench.colorTheme": "Geladeira dark 2",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "amVim.bindCtrlCommands": false,
   "amVim.useSystemClipboard": false,
   "editor.codeActionsOnSave": {
@@ -47,7 +47,7 @@
    * fonts settings
    **/
 
-  "editor.fontFamily": "'JetBrainsMono Nerd Font'",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontSize": 18,
   "editor.tabSize": 2,

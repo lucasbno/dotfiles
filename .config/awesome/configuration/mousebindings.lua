@@ -1,8 +1,9 @@
 local awful = require "awful"
+local menu = require "ui.menu"
 
 local function set_mousebindings ()
   awful.mouse.append_global_mousebindings {
-      awful.button({ }, 3, function () mymainmenu:toggle() end),
+      awful.button({ }, 3, function () menu.mainmenu:toggle() end),
   }
 
   client.connect_signal("request::default_mousebindings", function ()
