@@ -10,10 +10,15 @@ an executable
 
 -- general
 local components = require("lvim.core.lualine.components")
+reload("user.options")
+reload("user.keymaps")
+reload("user.plugins")
+reload("user.catppuccin")
+reload("user.telescope")
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "dracula"
+lvim.colorscheme = "catppuccin"
 
 lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.sections.lualine_x = { components.diagnostics, components.lsp }
@@ -22,136 +27,17 @@ lvim.builtin.lualine.sections.lualine_y = {}
 
 -- lvim.format_on_save = true
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.expandtab = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
--- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<C-n>"] = ":ToggleTerm<cr>"
-lvim.keys.normal_mode["<C-f>"] = "<cmd> Telescope current_buffer_fuzzy_find sorting_strategy=ascending prompt_position=top previewer=false <CR>"
-lvim.keys.normal_mode["<C-p>"] = "<cmd> Telescope find_files <CR>"
--- lvim.keys.insert_mode["jj"] = "<Esc>"
-
-lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
-lvim.keys.normal_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
-lvim.keys.visual_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
-
-lvim.builtin.which_key.mappings["f"] = {
-    name = "Telescope",
-    f = { "<cmd> Telescope find_files <CR>", "Find files" },
-    w = { "<cmd> Telescope live_grep <CR>", "Search codebase" }
-}
-
---LSP
-lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Telescope lsp_definitions<cr>", "Goo to Definiton" }
-lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Telescope lsp_references<cr>", "Goo to Definiton" }
-lvim.lsp.buffer_mappings.normal_mode["gi"] = { "<cmd>Telescope lsp_implementations<cr>", "Goo to Definiton" }
 
 -- lvim.keys.normal_mode["<space>m"] =  "<cmd> Telescope lsp_references <CR>"
 -- lvim.keys.normal_mode["gi"] =  "<cmd> Telescope lsp_implementations <CR>"
 -- lvim.keys.normal_mode["gd"] =  "<cmd> Telescope lsp_definitions <CR>"
-
---
--- unmap a default keymapping
--- vim.keymap.del("n", "<C-Up>")
---
--- override a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
-
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
-
--- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"
-
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
--- }
-
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
---
-lvim.builtin.lualine.options.theme = "dracula-nvim"
-
---Telescope--
-lvim.builtin.telescope.pickers.find_files.previewer = nil
-
-lvim.builtin.telescope = {
-    active = true,
-    defaults = {
-        layout_strategy = "horizontal",
-        sorting_strategy = "ascending",
-        prompt_position = "top",
-        layout_config = {
-            horizontal = {
-                prompt_position = "top",
-                preview_width = 0.55,
-                results_width = 0.8,
-            },
-            vertical = {
-                mirror = false,
-            },
-            width = 0.87,
-            height = 0.80,
-            preview_cutoff = 120,
-        },
-    },
-    pickers = {
-        find_files = {
-            layout_config = { width = 0.80, height = 0.80, preview_width = 0.60, prompt_position = "top" },
-            previewer = nil
-        }
-    }
-}
-
-lvim.builtin.telescope.defaults.prompt_prefix = "  "
-lvim.builtin.telescope.defaults.selection_caret = "❯ "
-
-lvim.builtin.telescope.defaults.borderchars = {
-    prompt = { " ", " ", " ", " ", " ", " ", " ", " " },
-    results = { " ", " ", " ", " ", " ", " ", " ", " " },
-    preview = { " ", " ", " ", " ", " ", " ", " ", " " },
-}
-
-
-
--- lvim.builtin.telescope.pickers.live_grep = {
---     layout_config = { height = 0.99, width = 0.99, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
---     layout_strategy = "horizontal"
--- }
--- lvim.builtin.telescope.pickers.buffers.theme = "nil"
--- lvim.builtin.telescope.pickers.find_files.theme = "nil"
--- lvim.builtin.telescope.pickers.git_files.theme = "nil"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -261,24 +147,6 @@ formatters.setup {
 -- }
 
 -- Additional Plugins
-lvim.plugins = {
-    {
-        "decaycs/decay.nvim",
-        as = "decay",
-    },
-    {
-        "max397574/better-escape.nvim",
-        config = function()
-            require("better_escape").setup()
-        end,
-    },
-    {
-        "LucasBno/dracula.nvim"
-    },
-    { 'nyoom-engineering/oxocarbon.nvim' },
-    ins
-}
-
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
