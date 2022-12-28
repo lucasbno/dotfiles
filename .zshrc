@@ -33,3 +33,4 @@ export N_PREFIX="$HOME/.local/bin/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PA
 
 foo() { if [ "$1" = "bar" ]; then echo "doing something..."; fi; }
 #source /home/lucasbno/.tmc-autocomplete.sh || true
+source /home/lucasbno/.tmc-autocomplete.sh || true

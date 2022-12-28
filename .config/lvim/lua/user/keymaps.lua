@@ -13,17 +13,22 @@ lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
 lvim.keys.visual_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
 
+--Telescope--
 lvim.builtin.which_key.mappings["f"] = {
   name = "Telescope",
   f = { "<cmd> Telescope find_files <CR>", "Find files" },
   w = { "<cmd> Telescope live_grep <CR>", "Search codebase" },
-  d = { "<cmd> Telescope diagnostics <CR>", "Search diagnostics" }
+  d = { "<cmd> Telescope diagnostics <CR>", "Search diagnostics" },
+  p = { "<cmd> Telescope projects<CR>", "Search projects" }
 }
 
-
---LSP
+--LSP--
 lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Telescope lsp_definitions<cr>", "Goo to Definiton" }
 lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Telescope lsp_references<cr>", "Goo to Definiton" }
 lvim.lsp.buffer_mappings.normal_mode["gi"] = { "<cmd>Telescope lsp_implementations<cr>", "Goo to Definiton" }
+
+--Terminals
+lvim.keys.term_mode["<C-t>"] = "<cmd>ToggleTerm<cr>"
+lvim.keys.normal_mode["<C-t>"] = "<cmd>ToggleTerm<cr>"
 
 keymap("v", "p", '"_dP', opts)
