@@ -30,7 +30,7 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": false,
-  "workbench.colorTheme": "poimandres",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "amVim.bindCtrlCommands": false,
   "amVim.useSystemClipboard": false,
   "editor.codeActionsOnSave": {
@@ -115,6 +115,7 @@
   "testMyCode.updateExercisesAutomatically": true,
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "liveServer.settings.donotShowInfoMsg": true
   // "workbench.statusBar.visible": false,
 }
