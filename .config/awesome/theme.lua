@@ -69,10 +69,7 @@ theme.border_focus  = "#84c7d0"
 theme.border_marked = "#91231c"
 
 -- systray
-theme.systray_icon_spacing = dpi(12)
-theme.systray_max_rows = 7
-theme.tray_chevron_up = gears.color.recolor_image(assets_path .. 'tray/up.svg', theme.fg_normal)
-theme.tray_chevron_down = gears.color.recolor_image(assets_path .. 'tray/down.svg', theme.fg_normal)
+theme.systray_icon_spacing = dpi(4)
 
 --taglist
 theme.taglist_fg_focus = "#50fa7b"

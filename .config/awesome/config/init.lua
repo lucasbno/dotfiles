@@ -1,0 +1,6 @@
+require "config.errors"
+require "config.keys"
+require "config.rules"
+require "config.layouts"
+require "config.mousekeys"
+require "config.signal"

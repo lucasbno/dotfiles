@@ -1,19 +1,18 @@
-  pcall(require, "luarocks.loader")
+pcall(require, "luarocks.loader")
 
-  local gears = require("gears")
-  local awful = require("awful")
-  local beautiful = require("beautiful")
+-- Standard awesome library
+gears = require("gears")
+awful = require("awful")
+beautiful = require("beautiful")
+beautiful.init('~/.config/awesome/theme.lua')
 
-  require("awful.autofocus")
-  beautiful.init("/home/lucasbno/.config/awesome/theme.lua")
-  require("awful.hotkeys_popup.keys")
-  require "user"
-  require "configuration"
-  require "ui"
+keys = require("config.keys")
+require "user"
+require "config"
+require("awful.autofocus")
+require "bar"
+require("awful.hotkeys_popup.keys")
+require "menu"
 
-  mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+awful.spawn.with_shell("/home/lucasbno/.config/awesome/autorun.sh")
 
-  awful.spawn.with_shell("/home/lucasbno/.config/awesome/autorun.sh")
