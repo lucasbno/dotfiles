@@ -30,7 +30,7 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": false,
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Geladeira dark",
   "amVim.bindCtrlCommands": false,
   "amVim.useSystemClipboard": false,
   "editor.codeActionsOnSave": {
@@ -72,13 +72,7 @@
       // "sideBar.background": "#1e1e2e",
       // "titleBar.inactiveBackground": "#1e1e2e"
     },
-    "scrollbarSlider.background": "#00000000",
-    "scrollbarSlider.hoverBackground": "#00000000",
-    "editor.foldBackground": "#00000046",
-    "editorCursor.foreground": "#e6e6e6",
-    "activityBar.activeBorder": "#ff000000",
-    "sideBar.border": "#575268",
-    "editorIndentGuide.background": "#5752687a"
+    "sideBar.border": "#ff000000"
   },
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": true,
