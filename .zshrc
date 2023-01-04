@@ -3,8 +3,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="lvim"
-export VISUAL="lvim"
+# export EDITOR="lvim"
+# export VISUAL="lvim"
 export PATH="$PATH:/home/lucasbno/.local/bin"
 export PATH="$PATH:/home/lucasbno/.npm-global/bin"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
