@@ -2,7 +2,7 @@
   /**
     --------Defaults--------
     **/
-  "workbench.activityBar.visible": false,
+  // "workbench.activityBar.visible": false,
   "editor.glyphMargin": false,
   "window.menuBarVisibility": "hidden",
   "editor.formatOnSave": true,
@@ -110,6 +110,7 @@
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
   "diffEditor.ignoreTrimWhitespace": false,
-  "liveServer.settings.donotShowInfoMsg": true
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.inlayHints.enabled": "offUnlessPressed"
   // "workbench.statusBar.visible": false,
 }
