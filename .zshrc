@@ -9,6 +9,7 @@ export PATH="$PATH:/home/lucasbno/.local/bin"
 export PATH="$PATH:/home/lucasbno/.npm-global/bin"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 export TERM='xterm-256color'
+export GTK_THEME='Catppuccin-Mocha-Standard-Blue-Dark'
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 ##################################
