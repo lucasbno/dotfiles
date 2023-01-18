@@ -2,7 +2,7 @@
   /**
     --------Defaults--------
     **/
-  // "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": false,
   "editor.glyphMargin": false,
   "window.menuBarVisibility": "hidden",
   "editor.formatOnSave": true,
@@ -30,7 +30,6 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": false,
-  "workbench.colorTheme": "Geladeira dark",
   "amVim.bindCtrlCommands": false,
   "amVim.useSystemClipboard": false,
   "editor.codeActionsOnSave": {
@@ -101,16 +100,19 @@
   },
   "editor.cursorBlinking": "smooth",
   "[java]": {
-    "editor.defaultFormatter": "redhat.java"
+    "editor.defaultFormatter": "redhat.java",
+    "editor.tabSize": 4,
     // "editor.parameterHints.enabled": false
   },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "testMyCode.downloadOldSubmission": true,
   "testMyCode.hideMetaFiles": true,
   "testMyCode.updateExercisesAutomatically": true,
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "editor.inlayHints.enabled": "offUnlessPressed"
+  "editor.cursorSmoothCaretAnimation": true,
+  "workbench.colorTheme": "dracula-darker",
   // "workbench.statusBar.visible": false,
 }

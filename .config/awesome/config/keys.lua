@@ -26,7 +26,7 @@ keys.globalkeys = gears.table.join(
   -- Applications
   awful.key({ modkey }, 'Return', function() awful.util.spawn(terminal) end),
   awful.key({ modkey }, 'e', function() awful.util.spawn(terminal .. " -e ranger") end),
-  awful.key({ modkey}, 'd', function() awful.spawn.with_shell("~/.config/rofi/launcher/launcher.sh")end),
+  awful.key({ modkey}, 'd', function() awful.spawn("rofi -show drun")end),
 
   -- Screenshots
   awful.key({}, 'Print', function() awful.util.spawn(screenshot_tool) end)

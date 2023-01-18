@@ -32,7 +32,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
   -- Each screen has its own tag table.
   awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 " }, s, awful.layout.layouts[1])
 
-  -- Create a promptbox for each screen
+  -- Layout boxes
   s.mypromptbox = awful.widget.prompt()
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
@@ -46,13 +46,19 @@ screen.connect_signal('request::desktop_decoration', function(s)
   end), awful.button({}, 5, function()
     awful.layout.inc(-1)
   end)))
-  -- Create a taglist widget
-  s.mytaglist = awful.widget.taglist {
-    screen = s,
-    filter = awful.widget.taglist.filter.all,
-    buttons = taglist_buttons
-  }
 
+-- Create a taglist widget
+s.mytaglist = wibox.widget {
+    {
+      widget = awful.widget.taglist {
+        screen  = s,
+        filter  = awful.widget.taglist.filter.all,
+        buttons = taglist_buttons,
+      },
+    },
+    bottom = 1,
+    widget = wibox.container.margin
+}
   ------------------------------Clock and calendar--------------------------------------
   local clock_formats = {
     hour = '%a, %I:%M %p',

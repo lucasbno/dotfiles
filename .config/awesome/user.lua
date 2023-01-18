@@ -1,4 +1,4 @@
-terminal = "kitty"
+terminal = "alacritty"
 explorer = "nautilus"
 browser = "firefox"
 launcher = "rofi -show drun"

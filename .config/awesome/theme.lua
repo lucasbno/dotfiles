@@ -69,7 +69,7 @@ theme.border_focus  = "#84c7d0"
 theme.border_marked = "#91231c"
 
 -- systray
-theme.systray_icon_spacing = dpi(4)
+theme.systray_icon_spacing = dpi(8)
 
 --taglist
 theme.taglist_fg_focus = "#50fa7b"
