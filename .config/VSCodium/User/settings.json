@@ -2,7 +2,7 @@
   /**
     --------Defaults--------
     **/
-  "workbench.activityBar.visible": false,
+  // "workbench.activityBar.visible": false,
   "editor.glyphMargin": false,
   "window.menuBarVisibility": "hidden",
   "editor.formatOnSave": true,
@@ -115,4 +115,6 @@
   "editor.cursorSmoothCaretAnimation": true,
   "workbench.colorTheme": "dracula-darker",
   // "workbench.statusBar.visible": false,
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
 }
