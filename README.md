@@ -1,3 +1,3 @@
 # Awesomewm 
 
-<img src="./screenshots/mydesktop.png" alt="Desktop screenshot" >
+<img src="./images/screenshots/mydesktop.png" alt="Desktop screenshot" >
