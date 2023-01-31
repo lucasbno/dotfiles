@@ -6,6 +6,9 @@ local gfs = require("gears.filesystem")
 
 local dpi = xresources.apply_dpi
 
+local naughty = require("naughty")
+local rnotification = require("ruled.notification")
+
 -- paths
 local themes_path = gfs.get_themes_dir()
 local assets_path = gfs.get_configuration_dir() .. "assets/"
@@ -99,5 +102,23 @@ theme.fallback_notif_icon = gears.color.recolor_image(icons_path .. 'hints.svg',
 
 -- disable icon theme
 theme.icon_theme = nil
+
+  --------------------------
+  -- NAUGHTY CONFIGURATION
+  --------------------------
+  naughty.config.defaults.ontop = true
+  naughty.config.defaults.icon_size = dpi(32)
+  naughty.config.defaults.timeout = 10
+  naughty.config.defaults.hover_timeout = 300
+  naughty.config.defaults.title = 'System Notification Title'
+  naughty.config.defaults.margin = dpi(16)
+  naughty.config.defaults.border_width = 0
+  naughty.config.defaults.position = 'top_middle'
+  naughty.config.defaults.border_width = '1'
+  naughty.config.defaults.border_color = theme.cyan
+
+  naughty.config.defaults.shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, dpi(6))
+  end
 
 return theme

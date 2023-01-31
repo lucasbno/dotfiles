@@ -1,10 +1,10 @@
 configuration {
   /* display-drun: "  :"; */
-  display-drun: "Big Carl";
+  display-drun: "";
   display-window: "Windows: ";
   drun-display-format: "{icon} {name}";
   modi: "window,run,drun";
-  font: "Iosevka Nerd Font 14";
+  font: "Iosevka Nerd Font 16";
   show-icons: true;
   icon-theme: "Papirus";
 }

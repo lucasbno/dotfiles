@@ -3,13 +3,14 @@ export PATH="$PATH:/home/lucasbno/.local/bin"
 export PATH="$PATH:/home/lucasbno/.npm-global/bin"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 export TERM='xterm-256color'
-#fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+export EDITOR='lvim'
+# fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 ##################################
 ######### PLUGINS/ALIAS ##########
 ##################################
 
-ZSH_THEME="awesomepanda"
+ZSH_THEME="robbyrussell"
 plugins=(fzf zsh-autosuggestions fast-syntax-highlighting)
 
 alias copy='xclip -selection clipboard'
@@ -22,5 +23,4 @@ bindkey '^f' fzf-cd-widget
 bindkey -s "^g" 'git-main^M'
 
 source $ZSH/oh-my-zsh.sh
-
-foo() { if [ "$1" = "bar" ]; then echo "doing something..."; fi; }
+source $HOME/.utils.sh
