@@ -13,14 +13,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-      "catppuccin/nvim",
-      lazy = false, 
-      priority = 1000,
-      config = function()
-      -- load the colorscheme here
-        require("plugins.catppuccin")
-        vim.cmd([[colorscheme catppuccin]])
-      end,
+        "catppuccin/nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+          -- load the colorscheme here
+          require("plugins.catppuccin")
+          vim.cmd([[colorscheme catppuccin]])
+        end,
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -41,12 +41,20 @@ require("lazy").setup({
         end,
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     },
-    { 
-      'akinsho/bufferline.nvim', 
-      config = function ()
-        require("plugins.bufferline")
-      end,
-      requires = 'nvim-tree/nvim-web-devicons' 
+    {
+        'akinsho/bufferline.nvim',
+        config = function()
+          require("plugins.bufferline")
+        end,
+        requires = 'nvim-tree/nvim-web-devicons'
+    },
+
+    {
+        'goolord/alpha-nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+          require("plugins.alpha")
+        end,
     },
 
     --Utils

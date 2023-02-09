@@ -5,10 +5,25 @@ end
 
 bufferline.setup {
   options = {
+  always_show_bufferline = false,
     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
     right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-    offsets = { { filetype = "NvimTree", text = "File explorer", padding = 1 } },
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "Explorer",
+        highlight = "PanelHeading",
+        padding = 1,
+      },
+    },
     separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+    show_close_icon = false,
+    show_buffer_close_icons = false,
+    hover = {
+      enabled = true,
+      delay = 200,
+      reveal = {'close'}
+    },
   },
 
   highlights = {
@@ -27,15 +42,6 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "TabLine" },
     },
 
-    close_button = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    close_button_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
     tab_selected = {
       fg = { attribute = "fg", highlight = "Normal" },
       bg = { attribute = "bg", highlight = "Normal" },
@@ -44,11 +50,6 @@ bufferline.setup {
     tab = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    tab_close = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "Normal" },
     },
 
     duplicate_selected = {
