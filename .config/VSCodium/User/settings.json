@@ -112,7 +112,7 @@
   "testMyCode.updateExercisesAutomatically": true,
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "workbench.colorTheme": "dracula-darker",
   // "workbench.statusBar.visible": false,
   "java.format.settings.profile": "GoogleStyle",

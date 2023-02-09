@@ -3,6 +3,7 @@ lvim.builtin.telescope.pickers.find_files.previewer = nil
 lvim.builtin.telescope = {
     active = true,
     defaults = {
+        files_ignore_patterns = { "node_modules" },
         layout_strategy = "horizontal",
         sorting_strategy = "ascending",
         prompt_position = "top",
