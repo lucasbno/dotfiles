@@ -1,5 +1,6 @@
 #!/bin/bash
 
+$HOME/.config/awesome/scripts/redshift &
 nitrogen --restore &
 xset r rate 220 40 &
 xmodmap ~/.Xmodmap &

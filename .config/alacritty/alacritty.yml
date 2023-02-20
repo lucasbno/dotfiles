@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/dracula.yml
+  - ~/.config/alacritty/themes/dracula.yml
 window:
   padding:
     x: 12
