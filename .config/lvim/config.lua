@@ -5,6 +5,7 @@ reload("user.plugins")
 reload("user.catppuccin")
 reload("user.telescope")
 reload("user.lualine")
+reload("user.surround")
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false

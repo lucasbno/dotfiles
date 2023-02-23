@@ -13,5 +13,6 @@ require("awful.autofocus")
 require "bar"
 require("awful.hotkeys_popup.keys")
 require "menu"
+require "wallpaper"
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")

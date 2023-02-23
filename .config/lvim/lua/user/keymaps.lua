@@ -10,10 +10,12 @@ lvim.keys.normal_mode["<C-p>"] = "<cmd> Telescope find_files <CR>"
 
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
+
+--Rename--
 lvim.keys.normal_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
 lvim.keys.visual_mode["<space>r"] = ":%s/\\<<C-r><C-w>\\>//g<left><left>"
 
---Telescope--
+--telescope--
 lvim.builtin.which_key.mappings["f"] = {
   name = "Telescope",
   f = { "<cmd> Telescope find_files <CR>", "Find files" },

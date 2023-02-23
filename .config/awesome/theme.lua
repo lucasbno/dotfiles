@@ -19,12 +19,12 @@ local shapes_path = assets_path .. "shapes/"
 
 local theme = {}
 
-theme.font         = "Inter 12"
+theme.wallpaper = assets_path .. "/wallpapers/1.png"
+theme.font      = "Inter 12"
 theme.nerd_font = 'Iosevka Nerd Font 13'
 theme.material_icons = 'Material Icons'
 theme.font_size = '10'
 
---
 -- base colors
 theme.black = '#151720'
 theme.dimblack = '#1a1c25'
