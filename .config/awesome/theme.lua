@@ -20,7 +20,7 @@ local shapes_path = assets_path .. "shapes/"
 local theme = {}
 
 theme.wallpaper = assets_path .. "/wallpapers/1.png"
-theme.font      = "Inter 12"
+theme.font      = "Inter Bold 12"
 theme.nerd_font = 'Iosevka Nerd Font 13'
 theme.material_icons = 'Material Icons'
 theme.font_size = '10'
@@ -74,7 +74,7 @@ theme.systray_icon_spacing = dpi(8)
 
 --taglist
 theme.taglist_fg_focus = "#50fa7b"
-theme.taglist_font = "Inter 15"
+theme.taglist_font = "Inter 16"
 
 -- layouts
 theme.layout_fairh = gears.color.recolor_image(themes_path.."default/layouts/fairhw.png", theme.fg_normal)
