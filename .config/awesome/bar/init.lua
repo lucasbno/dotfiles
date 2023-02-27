@@ -143,8 +143,8 @@ s.mytaglist = wibox.widget {
     {
       widget = wibox.widget.systray(),
     },
-    top = 1,
-    bottom = 1,
+    top = 4,
+    bottom = 4,
     widget = wibox.container.margin
   }
 
