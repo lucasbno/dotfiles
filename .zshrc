@@ -1,5 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/home/lucasbno/.local/bin"
+export PATH="$PATH:/home/lucasbno/.config/awesome/assets/scripts"
 export PATH="$PATH:/home/lucasbno/.npm-global/bin"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 export TERM='xterm-256color'

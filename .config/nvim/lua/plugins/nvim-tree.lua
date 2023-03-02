@@ -13,7 +13,7 @@ return {
 
       local tree_cb = nvim_tree_config.nvim_tree_callback
 
-      nvim_tree.setup {
+      require("nvim-tree").setup({
           auto_reload_on_write = false,
           disable_netrw = false,
           hijack_cursor = false,
@@ -83,6 +83,6 @@ return {
                   },
               },
           },
-      }
+      })
     end,
 }

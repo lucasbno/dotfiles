@@ -3,6 +3,7 @@ local keys = {}
 local modkey = 'Mod4'
 local tags = 6
 keys.tags = tags
+local gfs = require("gears.filesystem")
 
 -- Keybindings
 keys.globalkeys = gears.table.join(
@@ -26,7 +27,8 @@ keys.globalkeys = gears.table.join(
   -- Applications
   awful.key({ modkey }, 'Return', function() awful.util.spawn(terminal) end),
   awful.key({ modkey }, 'e', function() awful.util.spawn(terminal .. " -e ranger") end),
-  awful.key({ modkey}, 'd', function() awful.spawn("rofi -show drun")end),
+  awful.key({ modkey}, 'd', function() awful.spawn("rofi -show drun -show-icons")end),
+  awful.key({ modkey}, 'b', function() awful.spawn.with_shell("~/.config/awesome/assets/scripts/rofi-zathura")end),
 
   -- Screenshots
   awful.key({}, 'Print', function() awful.util.spawn(screenshot_tool) end)
