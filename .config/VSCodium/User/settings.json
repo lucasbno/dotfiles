@@ -2,7 +2,7 @@
   /**
     --------Defaults--------
     **/
-  // "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": false,
   "editor.glyphMargin": false,
   "window.menuBarVisibility": "hidden",
   "editor.formatOnSave": true,
@@ -15,6 +15,7 @@
   "breadcrumbs.enabled": false,
   "workbench.sideBar.location": "right",
   "editor.occurrencesHighlight": false,
+
   "editor.minimap.enabled": false,
   "workbench.tips.enabled": false,
   "git.decorations.enabled": false,
@@ -47,6 +48,9 @@
    **/
 
   "editor.fontFamily": "JetBrainsMono Nerd Font",
+  // "editor.fontFamily": "Cascadia Code",
+  "editor.fontWeight": "normal",
+  // ui
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontSize": 18,
   "editor.tabSize": 2,
@@ -71,7 +75,9 @@
       // "sideBar.background": "#1e1e2e",
       // "titleBar.inactiveBackground": "#1e1e2e"
     },
-    "sideBar.border": "#ff000000"
+    "sideBar.border": "#ff000000",
+    "scrollbarSlider.background": "#00000000",
+    "editorCursor.foreground": "#ffffff"
   },
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": true,
@@ -98,7 +104,7 @@
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.tabSize": 4
   },
-  "editor.cursorBlinking": "smooth",
+  "editor.cursorBlinking": "solid",
   "[java]": {
     "editor.defaultFormatter": "redhat.java",
     "editor.tabSize": 4,
@@ -112,9 +118,10 @@
   "testMyCode.updateExercisesAutomatically": true,
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
-  "editor.cursorSmoothCaretAnimation": "on",
-  "workbench.colorTheme": "dracula-darker",
+  "workbench.colorTheme": "Ayu Dark",
   // "workbench.statusBar.visible": false,
   "java.format.settings.profile": "GoogleStyle",
   "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
+  "workbench.statusBar.visible": false,
+  "todo-tree.highlights.useColourScheme": true,
 }
