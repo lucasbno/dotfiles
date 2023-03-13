@@ -1,0 +1,6 @@
+#!/bin/sh
+
+yadm add -u
+yadm add ~/.config/awesome
+yadm add ~/.config/rofi
+yadm add ~/.config/alacritty

@@ -43,10 +43,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.suggest.showWords": false,
   // "editor.suggest.showSnippets": false,
-  /**
-   * fonts settings
-   **/
-
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   // "editor.fontFamily": "Cascadia Code",
   "editor.fontWeight": "450",
@@ -64,9 +60,8 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.fontSize": 17,
-  /**
-      --------Themes--------
-      **/
+
+  // Themes
   "workbench.colorCustomizations": {
     "[Ayu Dark]": {
       "tab.activeBorderTop": "#e6b450",
@@ -79,7 +74,6 @@
   },
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": true,
-  "workbench.iconTheme": "material-icon-theme",
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.suggestSelection": "first",
   "scm.diffDecorations": "none",
@@ -102,7 +96,6 @@
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.tabSize": 4
   },
-  "editor.cursorBlinking": "solid",
   "[java]": {
     "editor.defaultFormatter": "redhat.java",
     "editor.tabSize": 4
@@ -112,18 +105,21 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
   "testMyCode.downloadOldSubmission": true,
+  "workbench.editor.enablePreview": true,
   "testMyCode.hideMetaFiles": true,
   "testMyCode.updateExercisesAutomatically": true,
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
   "workbench.colorTheme": "Ayu Dark",
-  // "workbench.statusBar.visible": false,
   "java.format.settings.profile": "GoogleStyle",
   "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
-  "workbench.statusBar.visible": false,
   "todo-tree.highlights.useColourScheme": true,
-  "editor.cursorStyle": "block",
+  "todo-tree.general.statusBar": "tags",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "pomodoro.workTime": 50,
+  "pomodoro.pauseTime": 10,
+  "vscode-neovim.useCtrlKeysForNormalMode": false,
+  "workbench.iconTheme": "material-icon-theme"
 }
