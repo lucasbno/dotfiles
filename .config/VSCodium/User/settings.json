@@ -49,7 +49,7 @@
 
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   // "editor.fontFamily": "Cascadia Code",
-  "editor.fontWeight": "normal",
+  "editor.fontWeight": "450",
   // ui
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontSize": 18,
@@ -68,16 +68,14 @@
       --------Themes--------
       **/
   "workbench.colorCustomizations": {
-    "[Catppuccin]": {
-      // "editor.foldBackground": "#0000002a",
-      // "sideBar.background": "#11111b",
-      // "titleBar.inactiveBackground": "#11111b"
-      // "sideBar.background": "#1e1e2e",
-      // "titleBar.inactiveBackground": "#1e1e2e"
+    "[Ayu Dark]": {
+      "tab.activeBorderTop": "#e6b450",
+      "tab.activeBorder": "#00000000"
     },
     "sideBar.border": "#ff000000",
     "scrollbarSlider.background": "#00000000",
-    "editorCursor.foreground": "#ffffff"
+    "editorCursor.foreground": "#ffffff",
+    "scrollbarSlider.hoverBackground": "#00000000"
   },
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": true,
@@ -107,7 +105,7 @@
   "editor.cursorBlinking": "solid",
   "[java]": {
     "editor.defaultFormatter": "redhat.java",
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
     // "editor.parameterHints.enabled": false
   },
   "diffEditor.ignoreTrimWhitespace": false,
@@ -124,4 +122,8 @@
   "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
   "workbench.statusBar.visible": false,
   "todo-tree.highlights.useColourScheme": true,
+  "editor.cursorStyle": "block",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

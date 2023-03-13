@@ -18,11 +18,19 @@ alias copy='xclip -selection clipboard'
 alias c='codium'
 alias code='codium'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
-alias e='nvim'
+alias e='lvim'
+alias nvim='lvim'
+alias tm="tmux attach || tmux new -s main"
 # alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
 bindkey '^f' fzf-cd-widget
 bindkey -s "^g" 'git-main^M'
+
+# if [[ $TMUX = "" ]]; then
+#   # try to reattach sessions
+#   tmux ls | grep -vq attached && TMUXARG="attach-session -d"
+#   exec eval "tmux -2 $TMUXARG"
+# fi
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.utils.sh
