@@ -28,7 +28,8 @@ configuration {
   lcyan    : #7cd3e0;
 
   fg       : #cecfdf;
-  bg       : #090b0d;
+  /* bg       : #090b0d; */
+  bg       : #0b0e14;
 
   disabled : #7c7d87;
 

@@ -2,7 +2,7 @@
   /**
     --------Defaults--------
     **/
-  "workbench.activityBar.visible": false,
+  // "workbench.activityBar.visible": false,
   "editor.glyphMargin": false,
   "window.menuBarVisibility": "hidden",
   "editor.formatOnSave": true,
