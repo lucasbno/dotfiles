@@ -15,20 +15,19 @@ keys.globalkeys = gears.table.join(
   awful.key({ modkey }, 'Tab', function() awful.client.focus.byidx(1) end),
   awful.key({ modkey }, 'l', function() awful.client.focus.byidx(1) end),
   awful.key({ modkey }, 'h', function() awful.client.focus.byidx(-1) end),
-
   awful.key({ modkey }, 'Right', function() awful.tag.incmwfact(0.025) end),
   awful.key({ modkey }, 'Left', function() awful.tag.incmwfact(-0.025) end),
   awful.key({ modkey }, 'Up', function() awful.client.incwfact(0.05) end),
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
   awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
-  awful.key({ }, 'F9', awful.tag.history.restore),
+  awful.key({}, 'F9', awful.tag.history.restore),
 
 
   -- Applications
   awful.key({ modkey }, 'Return', function() awful.util.spawn(terminal) end),
   awful.key({ modkey }, 'e', function() awful.util.spawn(terminal .. " -e ranger") end),
-  awful.key({ modkey}, 'd', function() awful.spawn("rofi -show drun -show-icons")end),
-  awful.key({ modkey}, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura")end),
+  awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
+  awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura") end),
 
   -- Screenshots
   awful.key({}, 'Print', function() awful.util.spawn(screenshot_tool) end)
@@ -37,15 +36,22 @@ keys.globalkeys = gears.table.join(
 -- Keyboard Control
 keys.clientkeys = gears.table.join(
   awful.key({ modkey }, 'q', function(c) c:kill() end),
-  awful.key({ modkey }, 'f', function(c) c.fullscreen = not c.fullscreen; c:raise() end),
+  awful.key({ modkey }, 'f', function(c)
+    c.fullscreen = not c.fullscreen;
+    c:raise()
+  end),
   awful.key({ modkey }, 'space', function() awful.client.floating.toggle() end),
   awful.key({ modkey, }, "m",
     function(c)
       if c.maximized then
         awful.screen.focused().padding = { top = "0", bottom = "0", left = "0", right = "0" }
       else
-        awful.screen.focused().padding = { top = beautiful.useless_gap * 2, bottom = beautiful.useless_gap * 2,
-          left = beautiful.useless_gap * 2, right = beautiful.useless_gap * 2 }
+        awful.screen.focused().padding = {
+          top = beautiful.useless_gap * 2,
+          bottom = beautiful.useless_gap * 2,
+          left = beautiful.useless_gap * 2,
+          right = beautiful.useless_gap * 2
+        }
       end
       c.maximized = not c.maximized
       c:raise()

@@ -1,5 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/home/lucasbno/.local/bin"
+export PATH="$PATH:/home/lucasbno/.cargo/bin"
 export PATH="$PATH:/opt/anaconda/bin"
 export PATH="$PATH:/home/lucasbno/.npm-global/bin"
 export PATH="$PATH:/home/lucasbno/.config/awesome/scripts"
@@ -16,11 +17,7 @@ ZSH_THEME="robbyrussell"
 plugins=(fzf zsh-autosuggestions fast-syntax-highlighting)
 
 alias copy='xclip -selection clipboard'
-alias c='codium'
-alias code='codium'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
-alias e='lvim'
-alias nvim='lvim'
 alias tm="tmux attach || tmux new -s main"
 # alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
@@ -34,7 +31,7 @@ bindkey -s "^g" 'git-main^M'
 # fi
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.utils.sh
+#source $HOME/.utils.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
