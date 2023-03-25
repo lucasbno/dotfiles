@@ -1,8 +1,15 @@
 {
-  /**
-    --------Defaults--------
-    **/
-  // "workbench.activityBar.visible": false,
+  // Visual
+  "workbench.activityBar.visible": false,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontWeight": "450",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 18,
+  "editor.tabSize": 2,
+  "editor.lineHeight": 26,
+  "editor.suggestFontSize": 16,
+  "editor.suggestLineHeight": 24,
+  "editor.fontLigatures": true,
   "editor.glyphMargin": false,
   "window.menuBarVisibility": "hidden",
   "editor.formatOnSave": true,
@@ -15,10 +22,8 @@
   "breadcrumbs.enabled": false,
   "workbench.sideBar.location": "right",
   "editor.occurrencesHighlight": false,
-
   "editor.minimap.enabled": false,
   "workbench.tips.enabled": false,
-  "git.decorations.enabled": false,
   "workbench.startupEditor": "none",
   "editor.lightbulb.enabled": false,
   "editor.selectionHighlight": false,
@@ -31,35 +36,37 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": false,
-  "amVim.bindCtrlCommands": false,
-  "amVim.useSystemClipboard": false,
-  "editor.codeActionsOnSave": {
-    // "source.organizeImports": true,
-    "source.fixAll.eslint": true
-  },
-  "security.workspace.trust.banner": "never",
-  "security.workspace.trust.enabled": false,
-  "terminal.integrated.rightClickBehavior": "default",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.suggest.showWords": false,
-  // "editor.suggest.showSnippets": false,
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
-  // "editor.fontFamily": "Cascadia Code",
-  "editor.fontWeight": "450",
-  // ui
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.fontSize": 18,
-  "editor.tabSize": 2,
-  "editor.lineHeight": 26,
-  "editor.suggestFontSize": 16,
-  "editor.suggestLineHeight": 24,
-  "editor.fontLigatures": true,
   "editor.parameterHints.enabled": false,
   "editor.suggestOnTriggerCharacters": false,
   "editor.wordBasedSuggestions": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.renderLineHighlight": "none",
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.fontSize": 17,
+  "workbench.editor.enablePreview": true,
+  "workbench.colorTheme": "Ayu Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.cursorBlinking": "solid",
+
+  // Other
+  "security.workspace.trust.banner": "never",
+  "security.workspace.trust.enabled": false,
+  "terminal.integrated.rightClickBehavior": "default",
+  "editor.suggest.showWords": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
+  },
+  "editor.mouseWheelScrollSensitivity": 2,
+  "editor.suggestSelection": "first",
+  "workbench.localHistory.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "editor.matchBrackets": "never",
+  "explorer.confirmDelete": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.inlayHints.enabled": "offUnlessPressed",
 
   // Themes
   "workbench.colorCustomizations": {
@@ -72,54 +79,44 @@
     "editorCursor.foreground": "#ffffff",
     "scrollbarSlider.hoverBackground": "#00000000"
   },
-  "editor.overviewRulerBorder": false,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.mouseWheelScrollSensitivity": 2,
-  "editor.suggestSelection": "first",
-  "scm.diffDecorations": "none",
-  "editor.renderLineHighlight": "none",
-  "workbench.localHistory.enabled": false,
-  "workbench.layoutControl.enabled": false,
-  "editor.matchBrackets": "never",
-  "explorer.confirmDelete": false,
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "gitlens.codeLens.enabled": false,
+
+  // Languages
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "prettier.semi": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.tabSize": 4
   },
+
   "[java]": {
     "editor.defaultFormatter": "redhat.java",
     "editor.tabSize": 4
     // "editor.parameterHints.enabled": false
   },
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
+
+  //Git
+  "scm.diffDecorations": "none",
+  "gitlens.codeLens.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "editor.inlayHints.enabled": "offUnlessPressed",
-  "testMyCode.downloadOldSubmission": true,
-  "workbench.editor.enablePreview": true,
+  "git.decorations.enabled": false,
+
+  //Extensions
+  "amVim.bindCtrlCommands": false,
+  "amVim.useSystemClipboard": false,
+
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.general.statusBar": "tags",
+  "pomodoro.workTime": 50,
+
   "testMyCode.hideMetaFiles": true,
   "testMyCode.updateExercisesAutomatically": true,
   "testMyCode.insiderVersion": false,
   "testMyCode.logLevel": "errors",
-  "workbench.colorTheme": "Ayu Dark",
-  "java.format.settings.profile": "GoogleStyle",
-  "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
-  "todo-tree.highlights.useColourScheme": true,
-  "todo-tree.general.statusBar": "tags",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "pomodoro.workTime": 50,
-  "pomodoro.pauseTime": 10,
-  "vscode-neovim.useCtrlKeysForNormalMode": false,
-  "workbench.iconTheme": "material-icon-theme"
+  "testMyCode.downloadOldSubmission": true
 }
