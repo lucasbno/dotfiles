@@ -4,7 +4,7 @@ reload("user.keymaps")
 reload("user.plugins")
 reload("user.catppuccin")
 reload("user.telescope")
-reload("user.lualine")
+-- reload("user.lualine")
 reload("user.surround")
 
 lvim.log.level = "warn"
@@ -17,6 +17,7 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
+lvim.builtin.breadcrumbs.active = false
 
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
@@ -39,6 +40,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.lualine.style = "lvim"
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"

@@ -11,7 +11,7 @@ else
 fi
 
 pomodoro () {
-  timer ${TIME}s
+  timer ${TIME}m
   notify-send Pomodoro "$MSG"
   mpg123 ~/Downloads/notification.mp3
   # echo "Start again?"

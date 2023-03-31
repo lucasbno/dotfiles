@@ -18,7 +18,7 @@ plugins=(fzf zsh-autosuggestions fast-syntax-highlighting)
 
 alias copy='xclip -selection clipboard'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
-alias tm="tmux attach || tmux new -s main"
+# alias tm="tmux attach || tmux new -s main"
 # alias zathura="WD=\$(pwd);cd ~/books;nohup zathura \"\$(fzf)\""
 
 bindkey '^f' fzf-cd-widget
@@ -33,18 +33,7 @@ bindkey -s "^g" 'git-main^M'
 source $ZSH/oh-my-zsh.sh
 #source $HOME/.utils.sh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda/bin:$PATH"
-    fi
+if [ -z "$TMUX" ]
+then
+    tm
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-

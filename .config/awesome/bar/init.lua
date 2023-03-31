@@ -8,6 +8,7 @@ local helpers = require 'helpers'
 local markup = lain.util.markup
 
 require 'bar.calendar'
+local music = require 'bar.music'
 
 ------------------------------Tags--------------------------------------
 
@@ -47,8 +48,8 @@ screen.connect_signal('request::desktop_decoration', function(s)
     awful.layout.inc(-1)
   end)))
 
--- Create a taglist widget
-s.mytaglist = wibox.widget {
+  -- Create a taglist widget
+  s.mytaglist = wibox.widget {
     {
       widget = awful.widget.taglist {
         screen  = s,
@@ -58,7 +59,7 @@ s.mytaglist = wibox.widget {
     },
     bottom = 1,
     widget = wibox.container.margin
-}
+  }
   ------------------------------Clock and calendar--------------------------------------
   local clock_formats = {
     hour = '%a, %I:%M %p',
@@ -123,9 +124,9 @@ s.mytaglist = wibox.widget {
       lain.widget.mem {
         settings = function()
           widget:set_markup(" Memory " .. string.format(
-            "%.1f",
-            mem_now.used / 1000
-          ) .. 'G ')
+              "%.1f",
+              mem_now.used / 1000
+            ) .. 'G ')
         end,
       },
       bg = beautiful.bg,
@@ -198,15 +199,22 @@ s.mytaglist = wibox.widget {
   s.mywibox:setup {
     layout = wibox.layout.align.horizontal,
     -- expand = "none",
-    { -- Left widgets
+    {
+      -- Left widgets
       layout = wibox.layout.fixed.horizontal,
       s.mytaglist,
       layoutbox,
+      {
+        music,
+        left = 8,
+        widget = wibox.container.margin,
+      },
       -- s.mypromptbox
     },
     -- s.mytasklist, -- Middle widget
     nil,
-    { -- Right widgets
+    {
+      -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       -- wibox.widget.systray(),
       tray,

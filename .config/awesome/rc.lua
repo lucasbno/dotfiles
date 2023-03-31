@@ -6,7 +6,11 @@ awful = require("awful")
 beautiful = require("beautiful")
 beautiful.init('~/.config/awesome/theme.lua')
 keys = require("config.keys")
+bling = require("bling")
 local naughty = require("naughty")
+
+
+modkey = "Mod4"
 
 require "user"
 require "config"

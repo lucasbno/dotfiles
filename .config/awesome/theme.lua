@@ -101,6 +101,9 @@ theme.volume_muted = gears.color.recolor_image(icons_path .. 'volume-muted.svg',
 -- fallback notification icon
 theme.fallback_notif_icon = gears.color.recolor_image(icons_path .. 'hints.svg', theme.blue)
 
+theme.playerctl_ignore  = "chromium"
+theme.playerctl_player  = {"spotify", "%any"}
+
 -- disable icon theme
 theme.icon_theme = nil
 
