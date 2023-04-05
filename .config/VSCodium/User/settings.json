@@ -98,7 +98,7 @@
   },
   "java.format.settings.profile": "GoogleStyle",
   "java.format.settings.url": ".tmc/.vscode/java-formatter.xml",
-  // "java.jdt.ls.java.home": "/usr/lib/jvm/java-19-openjdk",
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-19-openjdk",
 
   //Git
   "scm.diffDecorations": "none",

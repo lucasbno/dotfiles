@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -z "$TMUX"]
+then
+  session="main"
+
+  tmux new-session -d -s $session
+
+  tmux rename-window -t $session:1 'editor'
+
+  tmux new-window -t $session:2 -n 'term'
+
+  tmux select-window -t $session:1
+
+  tmux attach-session -t $session
+else
+  tmux attach
+fi
