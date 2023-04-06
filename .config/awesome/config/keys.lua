@@ -24,10 +24,16 @@ keys.globalkeys = gears.table.join(
   awful.key({}, 'F24', awful.tag.history.restore),
 
   -- Applications
-  awful.key({ modkey }, 'Return', function() awful.spawn(terminal) end),
   awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
+  awful.key({ modkey, }, 'Return', function()
+    awful.client.run_or_raise(terminal, function(c)
+      return awful.rules.match(c, { class = "Alacritty" })
+    end, function(c)
+      c:move_to_tag(awful.screen.focused().selected_tag)
+    end)
+  end),
 
   -- Screenshots
   awful.key({}, 'Print', function() awful.util.spawn(screenshot_tool) end)
