@@ -34,8 +34,7 @@ selection:
 
 cursor:
   style:
-    shape: Beam
-    blinking: Always
+    shape: Block
 
 shell:
   program: /usr/bin/zsh
