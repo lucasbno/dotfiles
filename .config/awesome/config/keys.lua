@@ -27,7 +27,7 @@ keys.globalkeys = gears.table.join(
   awful.key({ modkey }, 'Return', function() awful.spawn(terminal) end),
   awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
-  awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura") end),
+  awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
 
   -- Screenshots
   awful.key({}, 'Print', function() awful.util.spawn(screenshot_tool) end)
