@@ -1,0 +1,7 @@
+bindkey '^f' fzf-cd-widget
+bindkey -s "^g" 'git-main^M'
+bindkey '^ ' autosuggest-accept
+
+alias copy='xclip -r -selection clipboard'
+alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
+alias e='lvim ~/notes'
