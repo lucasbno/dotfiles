@@ -21,12 +21,12 @@ keys.globalkeys = gears.table.join(
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
   awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
   awful.key({}, 'F23', awful.tag.history.restore),
-  awful.key({}, 'F24', awful.tag.history.restore),
 
   -- Applications
   awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
-  awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
+  -- awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
+  awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
   awful.key({ modkey, }, 'Return', function()
     awful.client.run_or_raise(terminal, function(c)
       return awful.rules.match(c, { class = "Alacritty" })
@@ -72,10 +72,9 @@ keys.clientbuttons = gears.table.join(
   awful.button({ modkey }, 3, function() awful.mouse.client.resize() end)
 )
 
--- keys.globalkeys = gears.table.join(
---   awful.button({}, 1, function(c) client.focus = c end)
--- )
-
+keys.globalbuttons = gears.table.join(
+  awful.button({}, 9, awful.tag.history.restore)
+)
 
 for i = 1, tags do
   keys.globalkeys = gears.table.join(keys.globalkeys,

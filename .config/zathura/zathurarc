@@ -20,13 +20,13 @@ set guioptions ""
 # zathurarc-dark
 
 set font "inconsolata 14"
-set default-bg "#090b0d" #00
+set default-bg "#0B0E14" #00
 set default-fg "#F7F7F6" #01
 
-set statusbar-fg "#090b0d" #04
-set statusbar-bg "#090b0d" #01
+set statusbar-fg "#0B0E14" #04
+set statusbar-bg "#0B0E14" #01
 
-set inputbar-bg "#090b0d" #00 currently not used
+set inputbar-bg "#0B0E14" #00 currently not used
 set inputbar-fg "#FFFFFF" #02
 
 set notification-error-bg "#AC4142" #08
@@ -41,13 +41,13 @@ set highlight-active-color "#6A9FB5" #0D
 set completion-highlight-fg "#151515" #02
 set completion-highlight-bg "#90A959" #0C
 
-set completion-bg "#090b0d" #02
+set completion-bg "#0B0E14" #02
 set completion-fg "#E0E0E0" #0C
 
 set notification-bg "#90A959" #0B
 set notification-fg "#151515" #00
 
-set recolor-lightcolor "#090b0d" # Background
+set recolor-lightcolor "#0B0E14" # Background
 set recolor-darkcolor "#F7F7F6" # Foreground
 
 set recolor true
@@ -57,4 +57,6 @@ set scroll-step 50
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
-map Down zoom in
+map l navigate next 
+map h navigate previous
+
