@@ -1,5 +1,4 @@
 local keys = {}
-
 local modkey = 'Mod4'
 local tags = 6
 keys.tags = tags
@@ -70,10 +69,6 @@ keys.clientbuttons = gears.table.join(
   awful.button({}, 1, function(c) client.focus = c end),
   awful.button({ modkey }, 1, function() awful.mouse.client.move() end),
   awful.button({ modkey }, 3, function() awful.mouse.client.resize() end)
-)
-
-keys.globalbuttons = gears.table.join(
-  awful.button({}, 9, awful.tag.history.restore)
 )
 
 for i = 1, tags do

@@ -144,9 +144,9 @@ screen.connect_signal('request::desktop_decoration', function(s)
     {
       widget = wibox.widget.systray(),
     },
+    widget = wibox.container.margin,
     top = 4,
     bottom = 4,
-    widget = wibox.container.margin
   }
 
   ------------------------------Volume--------------------------------------
@@ -204,11 +204,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
       layout = wibox.layout.fixed.horizontal,
       s.mytaglist,
       layoutbox,
-      {
-        music,
-        left = 8,
-        widget = wibox.container.margin,
-      },
+      music,
       -- s.mypromptbox
     },
     -- s.mytasklist, -- Middle widget
@@ -216,7 +212,6 @@ screen.connect_signal('request::desktop_decoration', function(s)
     {
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      -- wibox.widget.systray(),
       tray,
       {
         -- volume,

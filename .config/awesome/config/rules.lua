@@ -21,18 +21,30 @@ local function setup_rules()
         instance = { "copyq", "pinentry" },
         class    = {
           "Arandr", "Blueman-manager", "Gpick", "Kruler", "Sxiv",
-          "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer"
+          "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer",
         },
         name     = {
           "Event Tester", -- xev.
         },
         role     = {
-          "AlarmWindow", -- Thunderbird's calendar.
+          "AlarmWindow",   -- Thunderbird's calendar.
           "ConfigManager", -- Thunderbird's about:config.
-          "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+          "pop-up",        -- e.g. Google Chrome's (detached) Developer Tools.
         }
       },
       properties = { floating = true }
+    }
+    ruled.client.append_rule {
+      id         = "music",
+      rule_any   = {
+        class = { "spotify", "Spotify" },
+        name  = {
+          "Event Tester", -- xev.
+        },
+      },
+      properties = {
+        tag = screen[1].tags[6],
+      }
     }
     ruled.client.append_rule {
       id         = "titlebars",

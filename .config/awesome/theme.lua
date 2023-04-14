@@ -48,7 +48,7 @@ theme.bg_contrast   = "#0f111a"
 theme.bg_focus      = theme.bg_normal
 theme.bg_urgent     = theme.bg_normal
 theme.bg_minimize   = theme.bg_normal
-theme.bg_systray    = theme.bg_normal
+-- theme.bg_systray    = theme.green
 
 -- foregrounds
 theme.fg_normal     = "#a5b6cf"

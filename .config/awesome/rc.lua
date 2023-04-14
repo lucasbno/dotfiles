@@ -20,8 +20,12 @@ require("awful.hotkeys_popup.keys")
 require "menu"
 require "wallpaper"
 
-awful.mouse.append_global_mousebindings {
-  awful.button({}, 9, awful.tag.history.restore),
-}
+awful.rules.rules = {
+  {
 
+    rule = { class = "firefox" },
+
+  },
+  properties = { tag = '3', floating = true }
+}
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
