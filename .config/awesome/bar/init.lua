@@ -146,6 +146,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
     },
     widget = wibox.container.margin,
     top = 4,
+    right = 16,
     bottom = 4,
   }
 
@@ -213,13 +214,6 @@ screen.connect_signal('request::desktop_decoration', function(s)
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       tray,
-      {
-        -- volume,
-        -- tray_dispatcher,
-        right = 16,
-        widget = wibox.container.margin,
-        screen = screen[1]
-      },
       cpu,
       memory,
       date,
