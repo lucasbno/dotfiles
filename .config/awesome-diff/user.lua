@@ -8,4 +8,3 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 file_manager = "ranger"
 screenshot_tool = "flameshot gui"
-

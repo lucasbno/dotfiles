@@ -1,31 +1,17 @@
 pcall(require, "luarocks.loader")
-
--- Standard awesome library
 gears = require("gears")
 awful = require("awful")
-beautiful = require("beautiful")
-beautiful.init('~/.config/awesome/theme.lua')
-keys = require("config.keys")
-bling = require("bling")
-local naughty = require("naughty")
-
-
-modkey = "Mod4"
-
-require "user"
-require "config"
 require("awful.autofocus")
-require "bar"
+wibox = require("wibox")
+beautiful = require("beautiful")
+naughty = require("naughty")
+menubar = require("menubar")
+hotkeys_popup = require("awful.hotkeys_popup")
+beautiful.init("~/.config/awesome/theme.lua")
 require("awful.hotkeys_popup.keys")
-require "menu"
-require "wallpaper"
+require("keys")
+require("rules")
+require("bar")
 
-awful.rules.rules = {
-  {
 
-    rule = { class = "firefox" },
-
-  },
-  properties = { tag = '3', floating = true }
-}
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("~/.config/awesome/scripts/startup")

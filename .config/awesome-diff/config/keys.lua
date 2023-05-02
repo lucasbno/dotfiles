@@ -20,13 +20,14 @@ keys.globalkeys = gears.table.join(
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
   awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
   awful.key({}, 'F23', awful.tag.history.restore),
+  awful.key({}, 'F24', awful.tag.viewnext),
 
   -- Applications
-  awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
+  --awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
+  awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
   -- awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
-  awful.key({ modkey, }, 'Return', function()
     awful.client.run_or_raise(terminal, function(c)
       return awful.rules.match(c, { class = "Alacritty" })
     end, function(c)

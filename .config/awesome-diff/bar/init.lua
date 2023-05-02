@@ -205,7 +205,11 @@ screen.connect_signal('request::desktop_decoration', function(s)
       layout = wibox.layout.fixed.horizontal,
       s.mytaglist,
       layoutbox,
-      music,
+      {
+       music,
+       widget = wibox.container.margin,
+       left = 12,
+      }
       -- s.mypromptbox
     },
     -- s.mytasklist, -- Middle widget
