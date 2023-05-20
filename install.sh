@@ -30,13 +30,6 @@ install_awesome() {
   echo "Finished Awesome WM installation"
 }
 
-# Verificar se o script está sendo executado diretamente
-if [ "$$" -ne 1 ]; then
-  # Script não está sendo executado diretamente, ignora a instalação do Awesome WM
-  install_packages
-  exit 0
-fi
-
 # Script está sendo executado diretamente
 install_packages
 
