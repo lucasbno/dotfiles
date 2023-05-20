@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# Função para instalar os pacotes
 install_packages(){
   packages_url="https://raw.githubusercontent.com/LucasBno/dotfiles/main/packages"
   packages=$(curl "${packages_url}")
@@ -13,9 +13,9 @@ install_packages(){
   echo "Finished downloading packages"
 }
 
-
+# Função para instalar o Awesome Window Manager
 install_awesome() {
-  echo "Installing awesomewm"
+  echo "Installing Awesome WM"
   sleep 1
 
   git clone https://github.com/awesomeWM/awesome.git
@@ -27,16 +27,24 @@ install_awesome() {
   cd ..
   rm -rf awesome
 
-  echo "Finished awesomewm installation"
+  echo "Finished Awesome WM installation"
 }
 
+# Verificar se o script está sendo executado diretamente
+if [ "$$" -ne 1 ]; then
+  # Script não está sendo executado diretamente, ignora a instalação do Awesome WM
+  install_packages
+  exit 0
+fi
+
+# Script está sendo executado diretamente
 install_packages
 
 sleep 2
 
-read -p "Should install Awesomewm? (y/n)" answer
+read -p "Should install Awesome WM? (y/n)" answer
 if [ "$answer" != "${answer#[Yy]}" ]; then
   install_awesome
 else
-  echo "Awesomewm installation canceled"
+  echo "Awesome WM installation canceled"
 fi
