@@ -34,9 +34,9 @@ install_packages
 
 sleep 2
 
-read -p "Should install Awesomewm? (y/n)" answer
-if [ "$answer" != "${answer#[Yy]}" ]; then
-  install_awesome
-else
-  echo "Awesomewm installation canceled"
-fi
+# read -p "Should install Awesomewm? (y/n)" answer
+# if [ "$answer" != "${answer#[Yy]}" ]; then
+#   install_awesome
+# else
+#   echo "Awesomewm installation canceled"
+# fi
