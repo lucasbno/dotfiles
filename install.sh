@@ -10,10 +10,9 @@ install_packages(){
   sudo xbps-install -S $packages
 
   sleep 1
-  echo "Finished downloading packages"
+  echo "Finished installing packages"
 }
 
-# Função para instalar o Awesome Window Manager
 install_awesome() {
   echo "Installing Awesome WM"
   sleep 1
@@ -30,10 +29,9 @@ install_awesome() {
   echo "Finished Awesome WM installation"
 }
 
-# Script está sendo executado diretamente
 install_packages
 
-sleep 2
+sleep 1
 
 read -p "Should install Awesome WM? (y/n)" answer
 if [ "$answer" != "${answer#[Yy]}" ]; then
