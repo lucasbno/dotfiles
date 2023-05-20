@@ -1,1 +1,1 @@
-sudo xbps-install ranger
+xbps-install ranger
