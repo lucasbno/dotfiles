@@ -1,2 +1,1 @@
-Dependencies to compile awesome-git on fedora (needs rpm repository)
-sudo dnf install lua-devel lua-lgi luarocks luarocks-devel xcb-util\*devel @base-x libxdg-basedir-devel\n cairo-devel @base-x-devel libxkbcommon-x11-devel libxkbcommon-x11 startup-notification-devel
+sudo xbps-install ranger
