@@ -33,7 +33,7 @@ install_awesome() {
   echo "Finished awesomewm installation"
 }
 
-install_void-packages_repo() {
+install_void_packages_repo() {
   echo "Installing void packages"
   sleep 1
 
