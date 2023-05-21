@@ -1,20 +1,24 @@
 #!/bin/bash
 
-# Função para instalar os pacotes
 install_packages(){
   packages_url="https://raw.githubusercontent.com/LucasBno/dotfiles/main/packages"
   packages=$(curl "${packages_url}")
 
   echo "Installing packages"
-  sleep 2
+  sleep 1
   sudo xbps-install -S $packages
 
   sleep 1
-  echo "Finished installing packages"
+  echo "Finished downloading packages"
 }
 
 install_awesome() {
-  echo "Installing Awesome WM"
+  read -p "Should install Awesomewm? (y/n)" answer
+  if [ "$answer" == "${answer#[Yy]}" ]; then
+    return
+  fi
+
+  echo "Installing awesomewm"
   sleep 1
 
   git clone https://github.com/awesomeWM/awesome.git
@@ -26,16 +30,25 @@ install_awesome() {
   cd ..
   rm -rf awesome
 
-  echo "Finished Awesome WM installation"
+  echo "Finished awesomewm installation"
 }
 
-install_packages
+install_void-packages_repo() {
+  echo "Installing void packages"
+  sleep 1
 
-sleep 1
+  git clone https://github.com/void-linux/void-packages.git
+  cd void-packages
+  ./xbps-src binary-bootstrap
+}
 
-read -p "Should install Awesome WM? (y/n)" answer
-if [ "$answer" != "${answer#[Yy]}" ]; then
+main () {
+  install_void-packages_repo
+  
+  install_packages
+
   install_awesome
-else
-  echo "Awesome WM installation canceled"
-fi
+
+}
+
+main
