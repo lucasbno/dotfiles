@@ -6,7 +6,7 @@ install_packages(){
 
   echo "Installing packages"
   sleep 1
-  sudo xbps-install -S $packages
+  xi $packages
 
   sleep 1
   echo "Finished downloading packages"
