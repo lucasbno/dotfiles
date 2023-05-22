@@ -11,8 +11,8 @@ local function setup_rules()
         raise     = true,
         screen    = awful.screen.preferred,
         placement = awful.placement.no_overlap + awful.placement.no_offscreen,
-        keys      = keys.clientkeys,
-        buttons   = keys.clientbuttons,
+        keys      = clientkeys,
+        buttons   = clientbuttons,
       }
     }
     ruled.client.append_rule {

@@ -1,14 +1,43 @@
-local keys = {}
-local modkey = 'Mod4'
-local tags = 6
-keys.tags = tags
-local gfs = require("gears.filesystem")
+modkey = "Mod4"
+terminal = "alacritty"
+editor = os.getenv("EDITOR") or "nano"
+editor_cmd = terminal .. " -e " .. editor
 
--- Keybindings
-keys.globalkeys = gears.table.join(
+local function view_nonempty(i, screen)
+        screen = screen or awful.screen.focused()
+        local tags = screen.tags
+        local showntags = {}
+        for _, t in ipairs(tags) do
+                if not awful.tag.getproperty(t, "hide") then
+                        table.insert(showntags, t)
+                end
+        end
+        local sel = screen.selected_tag
+        -- Up to now, this is just copy&paste from awful.tag.viewidx().
+        -- The rest is different
+        local t = gears.table.cycle_value(showntags, sel, nil, function(t)
+                return #t:clients() > 0
+        end)
+        if t then
+                awful.tag.viewnone(screen)
+                t.selected = true
+                screen:emit_signal("tag::history::update")
+        end
+end
+
+-- {{{ Mouse bindings
+root.buttons(gears.table.join(
+  awful.button({}, 3, function() mymainmenu:toggle() end),
+  awful.button({}, 4, awful.tag.viewnext),
+  awful.button({}, 5, awful.tag.viewprev)
+))
+-- }}}
+
+-- {{{ Key bindings
+
+globalkeys = gears.table.join(
 -- Awesome
   awful.key({ modkey }, 'r', awesome.restart),
-  -- awful.key({modkey}, 'd', function() dashboard.toggle() end),
 
   -- Window management
   awful.key({ modkey }, 'Tab', function() awful.client.focus.byidx(1) end),
@@ -19,8 +48,8 @@ keys.globalkeys = gears.table.join(
   awful.key({ modkey }, 'Up', function() awful.client.incwfact(0.05) end),
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
   awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
-  awful.key({}, 'F23', awful.tag.history.restore),
-  awful.key({}, 'F24', awful.tag.viewnext),
+  awful.key({}, 'F23', function() view_nonempty() end),
+  awful.key({}, 'F24', awful.tag.history.restore),
 
   -- Applications
   --awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
@@ -28,6 +57,7 @@ keys.globalkeys = gears.table.join(
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
   -- awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
+  awful.key({ modkey }, 'Escape', function() awful.spawn.with_shell("~/.config/rofi/powermenu/powermenu.sh") end),
   awful.key({ modkey, }, 'Return', function()
     awful.client.run_or_raise(terminal, function(c)
       return awful.rules.match(c, { class = "Alacritty" })
@@ -35,12 +65,13 @@ keys.globalkeys = gears.table.join(
       c:move_to_tag(awful.screen.focused().selected_tag)
     end)
   end),
+
   -- Screenshots
-  awful.key({}, 'Print', function() awful.util.spawn(screenshot_tool) end)
+  awful.key({}, 'Print', function() awful.util.spawn("flameshot gui") end)
 )
 
 -- Keyboard Control
-keys.clientkeys = gears.table.join(
+clientkeys = gears.table.join(
   awful.key({ modkey }, 'q', function(c) c:kill() end),
   awful.key({ modkey }, 'f', function(c)
     c.fullscreen = not c.fullscreen;
@@ -65,27 +96,19 @@ keys.clientkeys = gears.table.join(
     { description = "(un)maximize", group = "client" })
 )
 
--- Mouse controls
-keys.clientbuttons = gears.table.join(
-  awful.button({}, 1, function(c) client.focus = c end),
-  awful.button({ modkey }, 1, function() awful.mouse.client.move() end),
-  awful.button({ modkey }, 3, function() awful.mouse.client.resize() end)
-)
-
-for i = 1, tags do
-  keys.globalkeys = gears.table.join(keys.globalkeys,
-
-    -- View tag
-    awful.key({ modkey }, '#' .. i + 9,
+for i = 1, 9 do
+  globalkeys = gears.table.join(globalkeys,
+    -- View tag only.
+    awful.key({ modkey }, "#" .. i + 9,
       function()
-        local tag = awful.screen.focused().tags[i]
+        local screen = awful.screen.focused()
+        local tag = screen.tags[i]
         if tag then
           tag:view_only()
         end
       end),
-
-    -- Move window to tag
-    awful.key({ modkey, 'Shift' }, '#' .. i + 9,
+    -- Move client to tag.
+    awful.key({ modkey, "Shift" }, "#" .. i + 9,
       function()
         if client.focus then
           local tag = client.focus.screen.tags[i]
@@ -93,10 +116,16 @@ for i = 1, tags do
             client.focus:move_to_tag(tag)
           end
         end
-      end))
+      end)
+  )
 end
 
--- Set globalkeys
-root.keys(keys.globalkeys)
+-- Cycle only through non-empty tags
 
-return keys
+clientbuttons = gears.table.join(
+  awful.button({}, 1, function(c) client.focus = c end),
+  awful.button({ modkey }, 1, function() awful.mouse.client.move() end),
+  awful.button({ modkey }, 3, function() awful.mouse.client.resize() end)
+)
+
+root.keys(globalkeys)
