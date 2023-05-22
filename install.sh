@@ -62,11 +62,11 @@ install_void_packages_repo() {
 }
 
 main () {
-  #install_void_packages_repo
+  install_void_packages_repo
   
-  # install_packages
+  install_packages
 
-  # install_awesome
+  install_awesome
 
   install_zsh_plugins
 

@@ -1,6 +1,6 @@
 source $HOME/.config/zsh/export
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 plugins=(fzf zsh-autosuggestions fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -11,3 +11,6 @@ if [ -z "$TMUX" ]
 then
     tm
 fi
+
+eval "$(starship init zsh)"
+
