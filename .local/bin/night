@@ -1,4 +1,0 @@
-#!/bin/sh
-CHOOSEN=$(gum choose "1900" "2500" "3500" "4500" "5500")
-
-redshift -x && redshift -O $CHOOSEN
