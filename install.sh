@@ -12,15 +12,17 @@ install_packages(){
   echo "Finished downloading packages"
 }
 
-install_zsh_plugins() {
- sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+install_oh_my_zsh() {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
 
+install_zsh_plugins() {
  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 
- git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+ #git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 }
 
@@ -62,12 +64,13 @@ install_void_packages_repo() {
 }
 
 main () {
-  install_void_packages_repo
+  # install_void_packages_repo
   
-  install_packages
+  # install_packages
 
-  install_awesome
+  # install_awesome
 
+  # install_oh_my_zsh
   install_zsh_plugins
 
 }

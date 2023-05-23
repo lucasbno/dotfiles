@@ -15,11 +15,11 @@ options="$shutdown\n$reboot\n$suspend\n$logout"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -i)"
 case $chosen in
     $shutdown)
-			poweroff;;
+			loginctl poweroff;;
     $reboot)
-			reboot;;
+			loginctl reboot;;
     $logout)
-				logout;;
+				loginctl logout;;
     $suspend)
-				systemctl suspend;;
+				loginctl suspend;;
 esac
