@@ -139,7 +139,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
     widget = wibox.container.margin,
   }
 
-  ------------------------------Memory--------------------------------------
+  ------------------------------Tray--------------------------------------
   local tray = wibox.widget {
     {
       widget = wibox.widget.systray(),
