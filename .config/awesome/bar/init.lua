@@ -8,6 +8,7 @@ local helpers = require 'helpers'
 local markup = lain.util.markup
 
 require 'bar.calendar'
+require 'bar.powermenu'
 local music = require 'bar.music'
 
 ------------------------------Tags--------------------------------------

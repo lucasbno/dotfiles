@@ -57,9 +57,9 @@ local function base_control_button(default_icon, font)
   return btn
 end
 
-local previous = base_control_button('玲')
-local pause = base_control_button('', beautiful.nerd_font .. ' 18')
-local next = base_control_button('怜')
+local previous = base_control_button('󰙣 ')
+local pause = base_control_button(' ')
+local next = base_control_button('󰙡 ')
 
 -- WIP
 local shuffle = base_control_button('怜')
@@ -85,13 +85,13 @@ end)
 
 playerctl:connect_signal('no_players', function()
   title:set_markup_silently('No music')
-  pause:set_markup('')
+  pause:set_markup('')
 end)
 
 playerctl:connect_signal('playback_status', function(_, playing)
   pause.txt = playing
-      and ''
-      or ''
+      and ' '
+      or ' '
 end)
 
 local music_player = wibox.widget {

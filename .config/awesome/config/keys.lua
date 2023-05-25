@@ -55,9 +55,8 @@ globalkeys = gears.table.join(
   --awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
   awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
-  -- awful.key({ modkey }, 'b', function() awful.spawn.with_shell("~/.config/awesome/scripts/rofi-zathura2") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
-  awful.key({ modkey }, 'Escape', function() awful.spawn.with_shell("~/.config/rofi/powermenu/powermenu.sh") end),
+  awful.key({ modkey }, 'Escape', function() awesome.emit_signal('powermenu::toggle') end),
   awful.key({ modkey, }, 'Return', function()
     awful.client.run_or_raise(terminal, function(c)
       return awful.rules.match(c, { class = "Alacritty" })
