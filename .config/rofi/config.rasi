@@ -5,7 +5,7 @@ configuration {
   display-window: "Windows: ";
   drun-display-format: "{icon} {name}";
   modi: "window,run,drun";
-  font: "Iosevka Nerd Font 16";
+  font: "aosevka Nerd Font 16";
   /* show-icons: true; */
   icon-theme: "Papirus";
   fallback-icon: "/home/lucasbno/Downloads/icons8-bookmark-64.png";

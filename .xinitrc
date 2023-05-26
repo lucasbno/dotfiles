@@ -32,5 +32,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+pipewire &
+pipewire-pulse &
 setxkbmap br &
 exec dbus-run-session awesome

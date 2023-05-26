@@ -6,12 +6,12 @@ local gears = require 'gears'
 local awful = require 'awful'
 
 playerctl = bling.signal.playerctl.lib {
-    ignore = "chromium",
+    ignore = {"chromium", "brave-browser", "brave"},
     player = {"spotify", "%any"}
 }
 
 playerctl_cli = bling.signal.playerctl.cli {
-    ignore = "chromium",
+    ignore = {"chromium", "brave"},
     player = {"spotify", "%any"}
 }
 
