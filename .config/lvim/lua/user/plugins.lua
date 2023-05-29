@@ -6,6 +6,5 @@ lvim.plugins = {
     end,
   },
   "catppuccin/nvim",
-  "mfussenegger/nvim-jdtls",
   "kylechui/nvim-surround",
 }
