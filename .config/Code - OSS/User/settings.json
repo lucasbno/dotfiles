@@ -119,5 +119,9 @@
     "testMyCode.insiderVersion": false,
     "testMyCode.logLevel": "errors",
     "testMyCode.downloadOldSubmission": true,
-    "window.menuBarVisibility": "hidden"
+    "window.menuBarVisibility": "hidden",
+
+    "extensions.experimental.affinity": {
+      "asvetliakov.vscode-neovim": 1
+  },
   }
