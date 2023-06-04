@@ -47,6 +47,18 @@ local function setup_rules()
       }
     }
     ruled.client.append_rule {
+      id         = "discord",
+      rule_any   = {
+        class = { "discord", "Discord" },
+        name  = {
+          "Event Tester", -- xev.
+        },
+      },
+      properties = {
+        tag = screen[1].tags[5],
+      }
+    }
+    ruled.client.append_rule {
       id         = "titlebars",
       rule_any   = { type = { "normal", "dialog" } },
       properties = { titlebars_enabled = false }
