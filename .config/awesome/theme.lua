@@ -65,9 +65,9 @@ theme.actions = {
 }
 
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(0)
-theme.border_normal = "#535d6c"
-theme.border_focus  = "#84c7d0"
+theme.border_width  = dpi(2)
+theme.border_normal = "#00000000"
+theme.border_focus  = "#ffd500"
 theme.border_marked = "#91231c"
 
 -- systray

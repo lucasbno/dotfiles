@@ -47,13 +47,14 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, 'Left', function() awful.tag.incmwfact(-0.025) end),
   awful.key({ modkey }, 'Up', function() awful.client.incwfact(0.05) end),
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
-  awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
+  -- awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
+  awful.key({ modkey }, 'BackSpace', function() awful.client.focus.byidx(-1) end),
   awful.key({}, 'F23', function() view_nonempty() end),
   awful.key({}, 'F24', awful.tag.history.restore),
 
   -- Applications
-  --awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
-  awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
+  awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
+  -- awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
   awful.key({ modkey }, 'Escape', function() awesome.emit_signal('powermenu::toggle') end),

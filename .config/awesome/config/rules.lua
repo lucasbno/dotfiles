@@ -1,8 +1,21 @@
 local ruled = require "ruled"
 local awful = require "awful"
-
+beautiful = require("beautiful")
 local function setup_rules()
   ruled.client.connect_signal("request::rules", function()
+    ruled.client.append_rule {
+      id = 'borders',
+      rule = {},
+      properties = { border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = awful.client.focus.filter,
+                     raise = true,
+                     keys = clientkeys,
+                     buttons = clientbuttons,
+                     screen = awful.screen.preferred,
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+     }
+    }
     ruled.client.append_rule {
       id         = "global",
       rule       = {},
