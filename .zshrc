@@ -13,9 +13,4 @@ then
     tm
 fi
 
-teste-24() {
-  preview="yadm diff --color=always -- {-1}"
-  yadm diff --name-only | fzf -m --ansi --preview $preview
-}
-
 source $HOME/.config/zsh/prompt
