@@ -21,7 +21,7 @@ lvim.builtin.which_key.mappings["f"] = {
   f = { "<cmd> Telescope find_files <CR>", "Find files" },
   w = { "<cmd> Telescope live_grep <CR>", "Search codebase" },
   d = { "<cmd> Telescope diagnostics <CR>", "Search diagnostics" },
-  p = { "<cmd> Telescope projects<CR>", "Search projects" }
+  p = { "<cmd> Telescope projects<CR>", "Search projects" },
 }
 
 --LSP--
