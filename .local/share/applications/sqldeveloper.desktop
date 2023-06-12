@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=SQL Developer
+Type=Application
+TryExec=/home/lucasbno/apps/sqldeveloper/sqldeveloper.sh
+Exec=/home/lucasbno/apps/sqldeveloper/sqldeveloper.sh
+Icon=/home/lucasbno/apps/sqldeveloper/icon.png

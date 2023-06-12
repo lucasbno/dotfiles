@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Obsidian
+Type=Application
+Exec=/home/lucasbno/apps/obsidian/Obsidian-1.3.4.AppImage
+Icon=/home/lucasbno/apps/obsidian/icon.png
+MimeType=x-scheme-handler/obsidian;

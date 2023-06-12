@@ -35,5 +35,5 @@ fi
 pipewire &
 pipewire-pulse &
 setxkbmap br &
-snooze -H01 -M 13 ~/day.sh &
+snooze -H21 -M 40 ~/day.sh &
 exec dbus-run-session awesome
