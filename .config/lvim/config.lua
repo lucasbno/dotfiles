@@ -3,4 +3,3 @@ require("user.keymaps")
 require("user.plugins")
 require("user.catppuccin")
 require("user.telescope")
-

@@ -7,4 +7,4 @@ lvim.plugins = {
   },
   "catppuccin/nvim",
   "kylechui/nvim-surround",
-}
+  }

@@ -117,12 +117,14 @@ theme.icon_theme = nil
   naughty.config.defaults.title = 'System Notification Title'
   naughty.config.defaults.margin = dpi(16)
   naughty.config.defaults.border_width = 0
-  naughty.config.defaults.position = 'top_middle'
-  naughty.config.defaults.border_width = '1'
+  naughty.config.defaults.position = 'top_right'
+  -- naughty.config.defaults.border_width = '1'
   naughty.config.defaults.border_color = theme.cyan
+  naughty.config.padding = dpi(8)
+  naughty.config.spacing = dpi(8)
 
-  naughty.config.defaults.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, dpi(6))
-  end
+  -- naughty.config.defaults.shape = function(cr, w, h)
+  --   gears.shape.rounded_rect(cr, w, h, dpi(6))
+  -- end
 
 return theme
