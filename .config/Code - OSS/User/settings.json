@@ -7,6 +7,7 @@
   "editor.fontSize": 18,
   "editor.tabSize": 2,
   "editor.lineHeight": 26,
+  "editor.lineNumbers": "relative",
   "editor.suggestFontSize": 16,
   "editor.suggestLineHeight": 24,
   "editor.fontLigatures": true,
@@ -45,7 +46,6 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.fontSize": 17,
   "workbench.editor.enablePreview": true,
-  "workbench.colorTheme": "Horizon",
   "workbench.iconTheme": "material-icon-theme",
   "editor.cursorBlinking": "solid",
   // Other
@@ -87,7 +87,6 @@
     "editor.tabSize": 4
   },
   "[java]": {
-    "editor.defaultFormatter": "redhat.java",
     "editor.tabSize": 4
     // "editor.parameterHints.enabled": false
   },
@@ -101,10 +100,10 @@
   "git.decorations.enabled": false,
   //Extensions
   "amVim.bindCtrlCommands": false,
-  "amVim.useSystemClipboard": false,
+  "amVim.useSystemClipboard": true,
+  "amVim.smartRelativeLineNumbers": true,
   "todo-tree.highlights.useColourScheme": true,
   "todo-tree.general.statusBar": "tags",
-  "pomodoro.workTime": 50,
   "window.menuBarVisibility": "hidden",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -112,34 +111,5 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  //VIM
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  // "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": false,
-  "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    },
-    {
-      "before": [
-        "k",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    }
-  ],
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "/usr/bin/nvim",
-  "vscode-neovim.useCtrlKeysForInsertMode": false,
-  "vscode-neovim.useCtrlKeysForNormalMode": false,
+  "workbench.colorTheme": "carl-theme-dark",
 }

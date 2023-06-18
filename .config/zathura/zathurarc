@@ -61,4 +61,6 @@ map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 map l navigate next 
 map h navigate previous
+map Right navigate next
+map Left navigate previous
 
