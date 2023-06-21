@@ -111,5 +111,5 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "workbench.colorTheme": "carl-theme-dark",
+  "workbench.colorTheme": "Horizon",
 }

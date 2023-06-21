@@ -53,8 +53,8 @@ globalkeys = gears.table.join(
   awful.key({}, 'F24', awful.tag.history.restore),
 
   -- Applications
-  awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
-  -- awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
+  -- awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
+  awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
   awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
   awful.key({ modkey }, 'Escape', function() awesome.emit_signal('powermenu::toggle') end),
