@@ -65,8 +65,6 @@ globalkeys = gears.table.join(
       c:move_to_tag(awful.screen.focused().selected_tag)
     end)
   end),
-
-  -- Screenshots
   awful.key({}, 'Print', function() awful.util.spawn("flameshot gui") end)
 )
 

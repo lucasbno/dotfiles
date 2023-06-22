@@ -1,6 +1,7 @@
 #!/bin/bash
 
 current=$(ps -o comm= -p "$(($(ps -o ppid= -p "$(($(ps -o sid= -p "$$")))")))")
+
 if [ "$current" != "alacritty" ]; then
     exit 0 
 fi

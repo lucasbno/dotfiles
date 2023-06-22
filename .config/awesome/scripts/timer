@@ -1,0 +1,4 @@
+#!/bin/sh
+
+TIME=$(gum input --placeholder "Type the time for the timer")
+termdown ${TIME} && paplay ~/Downloads/alarm.mp3
