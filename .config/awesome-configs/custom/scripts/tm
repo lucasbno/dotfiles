@@ -1,0 +1,30 @@
+#!/bin/bash
+
+current=$(ps -o comm= -p "$(($(ps -o ppid= -p "$(($(ps -o sid= -p "$$")))")))")
+
+if [ "$current" != "alacritty" ]; then
+    exit 0 
+fi
+
+session="main"
+
+tmux has-session -t $session 2>/dev/null
+
+if [ $? != 0 ]; then
+  tmux new-session -d -s $session
+
+  tmux rename-window -t $session:1 'editor'
+
+  tmux new-window -t $session:2 -n 'term'
+
+  tmux new-window -t $session:3 -n 'random'
+
+  # tmux new-window -t $session:3 -n 'notes'
+  # tmux send-keys -t $session:3 'lvim ~/notes' enter
+
+  tmux select-window -t $session:1
+
+  tmux attach-session -t $session
+fi
+
+tmux attach-session -t $session
