@@ -7,6 +7,6 @@ alias la="ls -a"
 alias ll="ls -al"
 alias copy='xclip -r -selection clipboard'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
-alias e='lvim ~/notes'
+alias e='lvim ~/random'
 alias fonts='fc-list : family | sort | uniq'
 alias nvim='lvim'

@@ -1,3 +1,0 @@
-#!/bin/sh
-CHOSEN=$(git log --oneline | fzf --height 40% --layout reverse)
-echo $CHOSEN | cut -d' ' -f1 | xclip -selection clipboard
