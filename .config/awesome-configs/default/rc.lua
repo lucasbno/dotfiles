@@ -13,5 +13,4 @@ require("keys")
 require("rules")
 require("bar")
 
-
-awful.spawn.with_shell("~/.config/awesome/scripts/startup")
+awful.spawn.with_shell("~/scripts/startup")
