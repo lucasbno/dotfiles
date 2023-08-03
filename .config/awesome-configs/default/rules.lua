@@ -1,6 +1,6 @@
 awful.layout.layouts = {
-  awful.layout.suit.tile,
   awful.layout.suit.tile.left,
+  -- awful.layout.suit.tile,
   -- awful.layout.suit.floating,
   -- awful.layout.suit.tile.bottom,
   -- awful.layout.suit.tile.top,
@@ -110,4 +110,15 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+client.connect_signal("property::floating", function(c)
+    if not c.fullscreen then
+        if c.floating then
+            c.ontop = true
+        else
+            c.ontop = false
+        end
+    end
+end)
+
 -- }}}

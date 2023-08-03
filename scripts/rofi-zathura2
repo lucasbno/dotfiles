@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# selection=$(find /home/lucasbno/books/ -name '*.pdf' -execdir printf '%s\n' {} + | rofi -dmenu) && nohup zathura $selection
+selection=$(find /home/lucasbno/books/ -name '*.pdf' -printf '%P\n' | rofi -dmenu -i -p '' ) && nohup zathura ~/books/$selection

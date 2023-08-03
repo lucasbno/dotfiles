@@ -1,3 +1,4 @@
+require("power")
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {

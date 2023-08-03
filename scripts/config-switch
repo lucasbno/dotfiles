@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+CONFIG=$(ls ~/.config/awesome-configs | gum choose)
+
+unlink ~/.config/awesome &&
+ln -s ~/.config/awesome-configs/${CONFIG} ~/.config/awesome &&
+echo 'awesome.restart()' | awesome-client

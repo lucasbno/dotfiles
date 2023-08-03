@@ -1,3 +1,4 @@
+require("error")
 pcall(require, "luarocks.loader")
 gears = require("gears")
 awful = require("awful")
