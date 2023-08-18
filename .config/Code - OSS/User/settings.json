@@ -46,7 +46,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.fontSize": 17,
   "workbench.editor.enablePreview": true,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "eq-material-theme-icons",
   "editor.cursorBlinking": "solid",
   // Other
   "security.workspace.trust.banner": "never",
@@ -111,5 +111,5 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "workbench.colorTheme": "Horizon",
+  "workbench.colorTheme": "dracula-darker",
 }
