@@ -12,7 +12,6 @@
   "editor.suggestLineHeight": 24,
   "editor.fontLigatures": true,
   "editor.glyphMargin": false,
-  "editor.formatOnSave": true,
   "editor.semanticHighlighting.enabled": false,
   "window.newWindowDimensions": "inherit",
   "editor.multiCursorModifier": "ctrlCmd",
@@ -112,4 +111,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "workbench.colorTheme": "dracula-darker",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "prettier.semi": false,
+  "editor.formatOnSave": true,
 }
