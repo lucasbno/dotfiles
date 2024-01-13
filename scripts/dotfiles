@@ -1,0 +1,19 @@
+#!/bin/sh
+
+uploadAllChanges() {
+	yadm add -u
+	yadm add ~/.config/awesome
+	yadm add ~/.config/rofi
+	yadm add ~/.config/alacritty
+	yadm add ~/.config/tmux
+	yadm add ~/.config/zsh
+
+	yadm commit -m "Automatic commit script"
+	yadm push
+}
+
+OPTION=$(gum choose "Upload all changes" "Edit")
+
+if [ "$OPTION" = "Upload all changes" ]; then
+	uploadAllChanges
+fi

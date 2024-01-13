@@ -20,7 +20,7 @@
   "editor.detectIndentation": false,
   "breadcrumbs.enabled": false,
   "workbench.sideBar.location": "right",
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.minimap.enabled": false,
   "workbench.tips.enabled": false,
   "workbench.startupEditor": "none",
@@ -35,9 +35,8 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": false,
-  "editor.parameterHints.enabled": false,
   "editor.suggestOnTriggerCharacters": false,
-  "editor.wordBasedSuggestions": false,
+  "editor.wordBasedSuggestions": "off",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.renderLineHighlight": "none",
   "editor.overviewRulerBorder": false,
@@ -45,7 +44,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.fontSize": 17,
   "workbench.editor.enablePreview": true,
-  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.iconTheme": "vscode-icons",
   "editor.cursorBlinking": "solid",
   // Other
   "security.workspace.trust.banner": "never",
@@ -53,8 +52,7 @@
   "terminal.integrated.rightClickBehavior": "default",
   "editor.suggest.showWords": false,
   "editor.codeActionsOnSave": {
-    // "source.organizeImports": true,
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.suggestSelection": "first",
@@ -113,5 +111,15 @@
   "workbench.colorTheme": "dracula-darker",
   "liveServer.settings.donotShowInfoMsg": true,
   "prettier.semi": false,
-  "editor.formatOnSave": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[go]": {
+    "editor.parameterHints.enabled": false,
+  },
+  "editor.parameterHints.enabled": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
 }
