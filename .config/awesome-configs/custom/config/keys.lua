@@ -44,8 +44,10 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, 'Left', function() awful.tag.incmwfact(-0.025) end),
   awful.key({ modkey }, 'Up', function() awful.client.incwfact(0.05) end),
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
-  -- awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
-  awful.key({ modkey }, 'BackSpace', function() awful.client.focus.byidx(-1) end),
+
+  awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
+  awful.key({ modkey }, 'k', awful.tag.history.restore),
+
   awful.key({}, 'F23', function() view_nonempty() end),
   awful.key({}, 'F24', awful.tag.history.restore),
 

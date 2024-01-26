@@ -38,3 +38,4 @@ setxkbmap br &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 snooze -H21 -M 40 ~/day.sh &
 exec dbus-run-session awesome
+#exec dbus-run-session i3
