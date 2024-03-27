@@ -1,6 +1,5 @@
 {
   // Visual
-  //"workbench.activityBar.visible": false,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontWeight": "450",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
@@ -24,7 +23,7 @@
   "editor.minimap.enabled": false,
   "workbench.tips.enabled": false,
   "workbench.startupEditor": "none",
-  "editor.lightbulb.enabled": false,
+  "editor.lightbulb.enabled": "off",
   "editor.selectionHighlight": false,
   "editor.renderControlCharacters": false,
   "editor.gotoLocation.multipleReferences": "goto",
@@ -124,7 +123,6 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
-  "workbench.activityBar.location": "hidden",
 
   "apc.font.family": "Cascadia Code PL",
   "apc.header": {
@@ -136,6 +134,39 @@
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.labelFormat": "short",
   "window.density.editorTabHeight": "compact",
-
-
+  "oracledevtools.bookmarkFileFolder": "/home/lucasbno/Oracle/oracle.oracledevtools",
+  "oracledevtools.download.otherFolder": "/home/lucasbno/downloads",
+  "oracledevtools.connectionConfiguration.configFilesFolder": "/home/lucasbno/Oracle/network/admin",
+  "[oraclesql]": {
+    "editor.suggest.showSnippets": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
+    "editor.defaultFormatter": "Oracle.oracledevtools"
+  },
+  "oracledevtools.connectionConfiguration.walletFileFolder": "/home/lucasbno/Oracle/network/admin",
+  "oracledevtools.connections": [
+    {
+      "authenticationType": 1,
+      "dBAPrivilege": "SYSDBA",
+      "userID": "SYS",
+      "passwordSaved": false,
+      "dataSource": "192.168.1.4:1521/xe",
+      "connectionType": 2,
+      "databaseHostName": "192.168.1.4",
+      "databasePortNumber": "1521",
+      "databaseServiceName": "xe",
+      "tnsAdmin": "/home/lucasbno/Oracle/network/admin",
+      "name": "test",
+      "color": "none",
+      "currentSchema": "",
+      "addSettingsScopeToConnectionName": false,
+      "addCurrentSchemaToConnectionName": false,
+      "filters": [],
+      "useCompatibleNamesDirectoryPath": true,
+      "passwordEmptyByUser": false
+    }
+  ],
 }

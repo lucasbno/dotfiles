@@ -8,13 +8,20 @@ BREAKMSG="Finished ${TIME} Minutes of work good job!"
 pomodoro () {
   termdown 50m
   notify-send Pomodoro "${WORKMSG}"
-  paplay ~/Downloads/alarm.mp3
+
+  for i in $(seq 3); do 
+    paplay ~/Downloads/alarm.mp3
+  done
 
   notify-send Pomodoro "Starting break"
 
   termdown 10m
+
   notify-send Pomodoro "${BREAKMSG}"
-  paplay ~/Downloads/alarm.mp3
+  for i in $(seq 3); do 
+    paplay ~/Downloads/alarm.mp3
+  done
+
 }
 
 for i in $(seq $REPEAT); do

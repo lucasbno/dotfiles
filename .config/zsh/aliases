@@ -1,5 +1,5 @@
 bindkey '^f' fzf-cd-widget
-bindkey -s "^g" 'git-main^M'
+##bindkey -s "^g" 'git-main^M'
 bindkey '^ ' autosuggest-accept
 
 alias ls="exa --icons --grid --classify --colour=auto --sort=type --group-directories-first --header --modified --created --git --binary"
@@ -8,5 +8,8 @@ alias ll="ls -al"
 alias copy='xclip -r -selection clipboard'
 alias pir='gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout'
 alias e='lvim ~/random'
+alias nvim='lvim'
 alias fonts='fc-list : family | sort | uniq'
 alias code='code-oss'
+alias update='sudo xbps-install -Su'
+alias disk='df -h -l --output=source,size,avail,target --total -x tmpfs -x udf -x vfat -x iso9660'

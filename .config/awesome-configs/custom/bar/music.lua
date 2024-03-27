@@ -2,16 +2,15 @@
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local helpers = require("helpers")
-local gears = require("gears")
 local awful = require("awful")
 
 playerctl = bling.signal.playerctl.lib({
-	ignore = { "chromium", "brave-browser", "brave" },
+  --ignore = { "chromium", "brave-browser", "brave" },
 	player = { "spotify", "%any" },
 })
 
 playerctl_cli = bling.signal.playerctl.cli({
-	ignore = { "chromium", "brave" },
+	-- ignore = { "chromium", "brave" },
 	player = { "spotify", "%any" },
 })
 

@@ -1,30 +1,24 @@
 lvim.plugins = {
-	{
-		"max397574/better-escape.nvim",
-		config = function()
-			require("better_escape").setup()
-		end,
-	},
-	"catppuccin/nvim",
-	"kylechui/nvim-surround",
-	"andweeb/presence.nvim",
-	"simrat39/rust-tools.nvim",
-	{
-		{
-			"saecki/crates.nvim",
-			version = "v0.3.0",
-			dependencies = { "nvim-lua/plenary.nvim" },
-			config = function()
-				require("crates").setup({
-					null_ls = {
-						enabled = true,
-						name = "crates.nvim",
-					},
-					popup = {
-						border = "rounded",
-					},
-				})
-			end,
-		},
-	},
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+  {
+    "ggandor/leap.nvim",
+    name = "leap",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  "catppuccin/nvim",
+  "kylechui/nvim-surround",
+  "andweeb/presence.nvim",
 }

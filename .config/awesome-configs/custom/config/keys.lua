@@ -46,10 +46,10 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, 'Down', function() awful.client.incwfact(-0.05) end),
 
   awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
-  awful.key({ modkey }, 'k', awful.tag.history.restore),
 
   awful.key({}, 'F23', function() view_nonempty() end),
   awful.key({}, 'F24', awful.tag.history.restore),
+  awful.key({ modkey }, 'k', awful.tag.history.restore),
 
   -- Applications
   -- awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
@@ -116,8 +116,6 @@ for i = 1, 9 do
       end)
   )
 end
-
--- Cycle only through non-empty tags
 
 clientbuttons = gears.table.join(
   awful.button({}, 1, function(c) client.focus = c end),

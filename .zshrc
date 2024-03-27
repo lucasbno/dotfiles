@@ -7,6 +7,7 @@ source $HOME/.config/zsh/utils.sh
 source $HOME/.config/zsh/export
 source $ZSH/oh-my-zsh.sh
 source $HOME/.config/zsh/aliases
+source $HOME/.config/zsh/prompt
 
 if [ -z "$TMUX" ]
 then
@@ -14,4 +15,4 @@ then
 fi
 
 # source $HOME/.config/zsh/prompt
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
