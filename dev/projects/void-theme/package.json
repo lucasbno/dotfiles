@@ -1,0 +1,21 @@
+{
+  "name": "void-theme",
+  "displayName": "Void Theme",
+  "description": "ya dark vscode theme",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Void Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Void Theme-color-theme.json"
+      }
+    ]
+  }
+}

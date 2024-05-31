@@ -108,7 +108,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "workbench.colorTheme": "dracula-darker",
+  "workbench.colorTheme": "Void Theme",
   "liveServer.settings.donotShowInfoMsg": true,
   "prettier.semi": false,
   "[typescriptreact]": {
