@@ -778,5 +778,13 @@
     "key": "alt+-",
     "command": "-decreaseSearchEditorContextLines",
     "when": "inSearchEditor"
+  },
+  {
+    "key": "ctrl+[BracketLeft]",
+    "command": "editor.togglequotes"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "-editor.togglequotes"
   }
 ]

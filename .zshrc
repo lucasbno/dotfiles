@@ -16,3 +16,4 @@ fi
 
 # source $HOME/.config/zsh/prompt
 # eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"

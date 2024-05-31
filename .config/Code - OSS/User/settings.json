@@ -72,7 +72,6 @@
     "editorCursor.foreground": "#ffffff",
     "scrollbarSlider.hoverBackground": "#00000000",
     "tab.activeForeground": "#b6e92a"
-
   },
   // Languages
   "[javascript]": {
@@ -123,7 +122,6 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
-
   "apc.font.family": "Cascadia Code PL",
   "apc.header": {
     "fontSize": 13,
@@ -169,4 +167,8 @@
       "passwordEmptyByUser": false
     }
   ],
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 120,
+  "explorer.confirmPasteNative": false,
+  "todo-tree.ripgrep.ripgrep": "/home/lucasbno/.npm/lib/node_modules/vscode-ripgrep/bin/rg",
 }
