@@ -1,3 +1,6 @@
+branch_remote_info() {
+
+  }
 PROMPT="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ) %{$fg[cyan]%}%c%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)'
 
