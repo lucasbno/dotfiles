@@ -9,3 +9,70 @@ keycode 202 = F24
 
 ---
 
+
+    -- awful.key({ modkey, }, 'Return', function()
+    --     awful.client.run_or_raise(terminal, function(c)
+    --         return awful.rules.match(c, { class = "Alacritty" })
+    --     end, function(c)
+    --         -- Get the focused screen
+    --         local focused_screen = awful.screen.focused()
+    --         local tag = focused_screen.selected_tag
+    
+    --         -- Send a notification with the focused screen index
+    --         awful.spawn.with_shell("notify-send 'Focused screen index: " .. focused_screen.index .. "'")
+
+    --         -- c:move_to_tag(tag)
+    
+    --         -- -- Move the client to the correct screen
+    --         -- if c.screen ~= focused_screen then
+    --         --     awful.client.movetoscreen(c, focused_screen)
+    --         -- end
+    
+    --         -- -- Ensure the client is on the correct tag
+  
+            
+    --         -- Optionally, switch to the tag (if you want the view to change)
+    --         -- tag:view_only()
+    --     end)
+    -- end),
+
+    --ESSE Ta quase funcionando
+    -- awful.key({ modkey, }, 'Return', function()
+    --     -- Store the currently focused screen
+    --     local focused_screen = awful.screen.focused()
+    --     local tag = focused_screen.selected_tag
+    
+    --     -- Send a notification with the focused screen index
+    --     awful.spawn.with_shell("notify-send 'Focused screen index: " .. focused_screen.index .. "'")
+    
+    --     -- Run or raise the terminal
+    --     awful.client.run_or_raise(terminal, function(c)
+    --         return awful.rules.match(c, { class = "Alacritty" })
+    --     end, function(c)
+    --         -- Move the client to the correct screen
+    --             -- awful.client.movetoscreen(c, focused_screen)
+    --         awful.spawn.with_shell("notify-send 'Focused screen index inside: " .. focused_screen.index .. "'")
+    --         c:move_to_screen(focused_screen)
+    
+    --         -- Ensure the client is on the correct tag
+    --         -- c:move_to_tag(tag)
+            
+    --         -- Optionally, switch to the tag (if you want the view to change)
+    --         -- tag:view_only()
+    --     end)
+    -- end),
+
+    awful.key({ modkey, }, 'Return', function()
+        awful.client.run_or_raise(terminal, function(c)
+            return awful.rules.match(c, { class = "Alacritty" })
+        end, function(c)
+            c:move_to_tag(awful.screen.focused().selected_tag)
+        end)
+    end),
+    
+    
+    
+
+    -- Screenshots
+    awful.key({}, 'Print', function() awful.util.spawn("flameshot gui") end)
+)
