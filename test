@@ -1,0 +1,11 @@
+clear mod4
+clear Lock
+add mod4 = Super_R
+
+keycode 66 = Super_R
+keycode 133 =
+keycode 201 = F23
+keycode 202 = F24
+
+---
+
