@@ -1,10 +1,8 @@
 clear mod4
-keycode 108 = Super_R
+clear Lock
 add mod4 = Super_R
 
-clear Lock
-keycode 66 = Hyper_L
-add mod4 = Hyper_L
+keycode 66 = Super_R
 keycode 133 = 
 keycode 201 = F23
 keycode 202 = F24
