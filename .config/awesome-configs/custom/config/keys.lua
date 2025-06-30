@@ -1,3 +1,5 @@
+local helpers = require("helpers")
+
 modkey = "Mod4"
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nano"
@@ -51,19 +53,25 @@ globalkeys = gears.table.join(
   awful.key({}, 'F24', awful.tag.history.restore),
   awful.key({ modkey }, 'k', awful.tag.history.restore),
 
+  -- Tabbed (bling) keybindings
+  awful.key({ modkey }, "w", function() bling.module.tabbed.pick() end,
+    {description = "pick client to add to tab group", group = "tabbed"}),
+  awful.key({ modkey, "Shift" }, "l", function() bling.module.tabbed.pop() end,
+    {description = "remove focused client from tab group", group = "tabbed"}),
+  awful.key({ modkey, "Shift" }, "h", function() bling.module.tabbed.pop() end,
+    {description = "remove focused client from tab group", group = "tabbed"}),
+  awful.key({ modkey }, "w", function() bling.module.tabbed.pick_by_direction("left") end,
+    {description = "pick client to the left", group = "tabbed"}),
+  awful.key({ modkey }, "w", function() bling.module.tabbed.pick_by_direction("right") end,
+    {description = "pick client to the right", group = "tabbed"}),
+
   -- Applications
   -- awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
   awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
-  awful.key({ modkey }, 'd', function() awful.spawn("rofi -show drun -show-icons") end),
+  awful.key({ modkey }, 'd', function() awful.spawn.with_shell("/home/lucasbno/.config/rofi/launchers/type-4/launcher.sh") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
   awful.key({ modkey }, 'Escape', function() awesome.emit_signal('powermenu::toggle') end),
-  awful.key({ modkey, }, 'Return', function()
-    awful.client.run_or_raise(terminal, function(c)
-      return awful.rules.match(c, { class = "Alacritty" })
-    end, function(c)
-      c:move_to_tag(awful.screen.focused().selected_tag)
-    end)
-  end),
+  awful.key({ modkey, }, 'Return', function() helpers.smart_terminal(terminal, "Alacritty") end),
   awful.key({}, 'Print', function() awful.util.spawn("flameshot gui") end)
 )
 

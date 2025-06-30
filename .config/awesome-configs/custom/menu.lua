@@ -22,7 +22,3 @@ local main = awful.menu {
 root.buttons(gears.table.join(
   awful.button({}, 3, function() main:toggle() end)
 ))
-
--- global.buttons(gears.table.join(
---   awful.button({ }, 9, awful.tag.viewnext)
--- ))

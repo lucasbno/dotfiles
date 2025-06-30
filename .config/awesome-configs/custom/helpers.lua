@@ -8,7 +8,6 @@ local dpi = beautiful.xresources.apply_dpi
 
 local helpers = {}
 
--- colorize a text using pango markup
 function helpers.get_colorized_markup(content, fg)
     fg = fg or beautiful.blue
     content = content or ''
@@ -16,7 +15,6 @@ function helpers.get_colorized_markup(content, fg)
     return '<span foreground="' .. fg .. '">' .. content .. '</span>'
 end
 
--- add hover support to wibox.container.background-based elements
 function helpers.add_hover(element, bg, hbg)
     element:connect_signal('mouse::enter', function (self)
         self.bg = hbg
@@ -26,7 +24,6 @@ function helpers.add_hover(element, bg, hbg)
     end)
 end
 
--- create a rounded rect using a custom radius
 function helpers.mkroundedrect(radius)
     radius = radius or dpi(7)
     return function (cr, w, h)
@@ -34,7 +31,6 @@ function helpers.mkroundedrect(radius)
     end
 end
 
--- create a simple rounded-like button with hover support
 function helpers.mkbtn(template, bg, hbg, radius)
     local button = wibox.widget {
         {
@@ -54,20 +50,17 @@ function helpers.mkbtn(template, bg, hbg, radius)
     return button
 end
 
--- add a list of buttons using :add_button to `widget`.
 function helpers.add_buttons(widget, buttons)
     for _, button in ipairs(buttons) do
         widget:add_button(button)
     end
 end
 
--- trim strings
 function helpers.trim(input)
     local result = input:gsub("%s+", "")
     return string.gsub(result, "%s+", "")
 end
 
--- make a rounded container for make work the antialiasing.
 function helpers.mkroundedcontainer(template, bg)
     return wibox.widget {
         template,
@@ -77,7 +70,6 @@ function helpers.mkroundedcontainer(template, bg)
     }
 end
 
--- make an awful.popup that's used to replace the native AwesomeWM tooltip component
 function helpers.make_popup_tooltip(text, placement)
     local ret = {}
 
@@ -148,13 +140,11 @@ function helpers.make_popup_tooltip(text, placement)
     return ret
 end
 
--- capitalize a string
 function helpers.capitalize (txt)
     return string.upper(string.sub(txt, 1, 1))
         .. string.sub(txt, 2, #txt)
 end
 
--- a fully capitalizing helper.
 function helpers.complex_capitalizing (s)
     local r, i = '', 0
     for w in s:gsub('-', ' '):gmatch('%S+') do
@@ -170,8 +160,6 @@ function helpers.complex_capitalizing (s)
     return r
 end
 
--- limit a string by a length and put ... at the final if the
--- `max_length` is exceded `str`
 function helpers.limit_by_length (str, max_length, use_pango)
     local sufix = ''
     local toput = '...'
@@ -188,7 +176,6 @@ function helpers.limit_by_length (str, max_length, use_pango)
     return str .. sufix
 end
 
--- apply a margin container to a given widget
 function helpers.apply_margin(widget, margins, top, bottom, right, left)
     return wibox.widget {
         widget,
@@ -199,6 +186,44 @@ function helpers.apply_margin(widget, margins, top, bottom, right, left)
         bottom = bottom,
         widget = wibox.container.margin,
     }
+end
+
+function helpers.smart_terminal(terminal_cmd, terminal_class)
+    terminal_cmd = terminal_cmd or "alacritty"
+    terminal_class = terminal_class or "Alacritty"
+    
+    local screen = awful.screen.focused()
+    local tag = screen.selected_tag
+    
+    for _, c in ipairs(tag:clients()) do
+        if awful.rules.match(c, { class = terminal_class }) then
+            client.focus = c
+            c:raise()
+            return
+        end
+    end
+    
+    for _, t in ipairs(screen.tags) do
+        for _, c in ipairs(t:clients()) do
+            if awful.rules.match(c, { class = terminal_class }) then
+                c:move_to_tag(tag)
+                client.focus = c
+                c:raise()
+                return
+            end
+        end
+    end
+    
+    for _, c in ipairs(client.get()) do
+        if awful.rules.match(c, { class = terminal_class }) and c.screen ~= screen then
+            c:move_to_tag(tag)
+            client.focus = c
+            c:raise()
+            return
+        end
+    end
+    
+    awful.spawn(terminal_cmd)
 end
 
 return helpers

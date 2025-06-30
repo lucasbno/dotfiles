@@ -1,6 +1,5 @@
 pcall(require, "luarocks.loader")
 
--- Standard awesome library
 require("config.errors")
 gears = require("gears")
 awful = require("awful")

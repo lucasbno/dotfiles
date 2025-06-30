@@ -107,6 +107,29 @@ theme.playerctl_player  = {"spotify", "%any"}
 -- disable icon theme
 theme.icon_theme = nil
 
+-- bling tabbed configuration
+theme.tabbed_spawn_in_tab = false  -- whether a new client should spawn into the focused tabbing container
+
+theme.tabbar_ontop = false
+theme.tabbar_radius = 0                    -- no border radius for minimal look
+theme.tabbar_style = "default"             -- default style is more minimal than modern
+theme.tabbar_font = "Inter 10"             -- smaller font for slim tabs
+theme.tabbar_size = dpi(22)                -- even slimmer for i3wm look
+theme.tabbar_position = "top"              -- position of the tabbar
+
+theme.tabbar_bg_focus = "#4C7899"          -- light blue for focused tab (i3wm style)
+theme.tabbar_fg_focus = "#FFFFFF"          -- white text on focused tab
+theme.tabbar_bg_normal = "#333333"         -- dark grey for unfocused tabs
+theme.tabbar_fg_normal = "#BBBBBB"         -- light grey text on unfocused tabs
+
+-- inactive window states (when window loses focus)
+theme.tabbar_bg_focus_inactive = "#285577"     -- darker blue when window is unfocused
+theme.tabbar_fg_focus_inactive = "#DDDDDD"     -- slightly dimmed white text
+theme.tabbar_bg_normal_inactive = "#222222"    -- darker grey for inactive unfocused tabs
+theme.tabbar_fg_normal_inactive = "#888888"    -- dimmed grey text
+
+theme.tabbar_disable = false               -- disable the tab bar entirely
+
   --------------------------
   -- NAUGHTY CONFIGURATION
   --------------------------
