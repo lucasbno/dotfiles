@@ -7,7 +7,6 @@ local gears = require 'gears'
 local helpers = require 'helpers'
 local dpi = beautiful.xresources.apply_dpi
 
--- listen for requests to change the visibility of the calendar in the focused screen ofc.
 local function get_calendar()
     return awful.screen.focused().calendar
 end
@@ -64,7 +63,6 @@ awful.screen.connect_for_each_screen(function (s)
     }
 
     s.calendar.popup = awful.popup {
-      -- 799E5A
         bg = '#00000000',
         fg = beautiful.fg_normal,
         visible = false,

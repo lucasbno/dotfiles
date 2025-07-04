@@ -57,7 +57,6 @@ local function make_powerbutton (opts)
         }
     end
 
-    -- @DEFAULT_VALUE -> key = `bg`
     opts.bg = opts.bg and opts.bg or beautiful.bg_lighter
     opts.bg_transparent = "#00000000"
 
@@ -86,7 +85,6 @@ local function make_powerbutton (opts)
         shape = gears.shape.circle,
     }
 
-    -- add hover support just when background is bg_lighter
     if opts.bg == beautiful.bg_lighter then
         helpers.add_hover(button, opts.bg_transparent, beautiful.dimblack)
     end
@@ -115,7 +113,7 @@ local powerbuttons = wibox.widget {
             }
         end,
         onclick = function ()
-            awful.spawn.with_shell('poweroff')
+            awful.spawn.with_shell('loginctl poweroff')
         end,
     },
     make_powerbutton {
@@ -132,7 +130,7 @@ local powerbuttons = wibox.widget {
             }
         end,
         onclick = function ()
-            awful.spawn.with_shell('reboot')
+            awful.spawn.with_shell('loginctl reboot')
         end
     },
     make_powerbutton {

@@ -2,7 +2,7 @@ local helpers = require("helpers")
 
 modkey = "Mod4"
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "nautilus"
 editor_cmd = terminal .. " -e " .. editor
 
 local function view_nonempty(i, screen)
@@ -15,8 +15,6 @@ local function view_nonempty(i, screen)
                 end
         end
         local sel = screen.selected_tag
-        -- Up to now, this is just copy&paste from awful.tag.viewidx().
-        -- The rest is different
         local t = gears.table.cycle_value(showntags, sel, nil, function(t)
                 return #t:clients() > 0
         end)
@@ -54,7 +52,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, 'k', awful.tag.history.restore),
 
   -- Tabbed (bling) keybindings
-  awful.key({ modkey }, "w", function() bling.module.tabbed.pick() end,
+  awful.key({ modkey }, "p", function() bling.module.tabbed.pick() end,
     {description = "pick client to add to tab group", group = "tabbed"}),
   awful.key({ modkey, "Shift" }, "l", function() bling.module.tabbed.pop() end,
     {description = "remove focused client from tab group", group = "tabbed"}),
@@ -67,7 +65,7 @@ globalkeys = gears.table.join(
 
   -- Applications
   -- awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
-  awful.key({ modkey }, 'e', function() awful.spawn("nemo") end),
+  awful.key({ modkey }, 'e', function() awful.spawn("nautilus") end),
   awful.key({ modkey }, 'd', function() awful.spawn.with_shell("/home/lucasbno/.config/rofi/launchers/type-4/launcher.sh") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
   awful.key({ modkey }, 'Escape', function() awesome.emit_signal('powermenu::toggle') end),

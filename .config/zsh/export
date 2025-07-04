@@ -8,4 +8,5 @@ export PATH="$PATH:/home/lucasbno/.npm/bin"
 export EDITOR='lvim'
 export FLYCTL_INSTALL="/home/lucasbno/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
+export PATH="/home/lucasbno/.local/share/flatpak/exports/share/applications:$PATH"
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/home/lucasbno/.local/share/flatpak/exports/share"
