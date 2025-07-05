@@ -173,7 +173,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
             end
             local muted = string.find(stdout, "Mute: yes")
             local color = muted and '#FF0000' or '#00FFFF'
-            volume.markup = string.format("[%s] ", markup.fg.color(color, value))
+            volume.markup = string.format("   %s ", markup.fg.color(color, value))
         end)
     end
 
