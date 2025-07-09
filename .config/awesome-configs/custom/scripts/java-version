@@ -1,6 +1,0 @@
-#!/bin/sh
-
-VERSIONS=$(archlinux-java status | sed '1d')
-CHOOSEN=$(archlinux-java status | sed '1d' | gum choose)
-
-sudo archlinux-java set $CHOOSEN

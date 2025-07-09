@@ -1,42 +1,18 @@
 local helpers = require("helpers")
 
-modkey = "Mod4"
-terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nautilus"
-editor_cmd = terminal .. " -e " .. editor
-
-local function view_nonempty(i, screen)
-        screen = screen or awful.screen.focused()
-        local tags = screen.tags
-        local showntags = {}
-        for _, t in ipairs(tags) do
-                if not awful.tag.getproperty(t, "hide") then
-                        table.insert(showntags, t)
-                end
-        end
-        local sel = screen.selected_tag
-        local t = gears.table.cycle_value(showntags, sel, nil, function(t)
-                return #t:clients() > 0
-        end)
-        if t then
-                awful.tag.viewnone(screen)
-                t.selected = true
-                screen:emit_signal("tag::history::update")
-        end
-end
-
--- Mouse bindings
+-- ##############################################################
+-- #                        Mouse bindings                     #
+-- ##############################################################
 root.buttons(gears.table.join(
   awful.button({}, 3, function() mymainmenu:toggle() end)
 ))
 
--- {{{ Key bindings
-
+-- ##############################################################
+-- #                        Key bindings                       #
+-- ##############################################################
 globalkeys = gears.table.join(
--- Awesome
   awful.key({ modkey }, 'r', awesome.restart),
 
-  -- Window management
   awful.key({ modkey }, 'Tab', function() awful.client.focus.byidx(1) end),
   awful.key({ modkey }, 'l', function() awful.client.focus.byidx(1) end),
   awful.key({ modkey }, 'h', function() awful.client.focus.byidx(-1) end),
@@ -47,7 +23,7 @@ globalkeys = gears.table.join(
 
   awful.key({ modkey }, 'BackSpace', awful.tag.history.restore),
 
-  awful.key({}, 'F23', function() view_nonempty() end),
+  awful.key({}, 'F23', function() helpers.view_nonempty() end),
   awful.key({}, 'F24', awful.tag.history.restore),
   awful.key({ modkey }, 'k', awful.tag.history.restore),
 
@@ -63,17 +39,20 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "w", function() bling.module.tabbed.pick_by_direction("right") end,
     {description = "pick client to the right", group = "tabbed"}),
 
-  -- Applications
-  -- awful.key({ modkey }, 'e', function() awful.spawn(terminal .. " -e ranger") end),
-  awful.key({ modkey }, 'e', function() awful.spawn("nautilus") end),
+-- ##############################################################
+-- #                        Applications                        #
+-- ##############################################################
+  awful.key({ modkey }, 'e', function() awful.spawn(file_manager) end),
   awful.key({ modkey }, 'd', function() awful.spawn.with_shell("/home/lucasbno/.config/rofi/launchers/type-4/launcher.sh") end),
   awful.key({ modkey }, 'b', function() awful.spawn.with_shell(terminal .. " -e ranger ~/books/") end),
   awful.key({ modkey }, 'Escape', function() awesome.emit_signal('powermenu::toggle') end),
-  awful.key({ modkey, }, 'Return', function() helpers.smart_terminal(terminal, "Alacritty") end),
-  awful.key({}, 'Print', function() awful.util.spawn("flameshot gui") end)
+  awful.key({ modkey}, 'Return', function() helpers.smart_terminal(terminal, "Alacritty") end),
+  awful.key({ modkey }, 'Delete', function() awful.util.spawn(screenshot_tool) end)
 )
 
--- Keyboard Control
+-- ##############################################################
+-- #                        Keyboard Control                   #
+-- ##############################################################
 clientkeys = gears.table.join(
   awful.key({ modkey }, 'q', function(c) c:kill() end),
   awful.key({ modkey }, 'f', function(c)

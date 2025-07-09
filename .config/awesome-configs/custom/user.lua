@@ -1,10 +1,10 @@
 terminal = "alacritty"
 explorer = "nautilus"
-browser = "firefox"
+browser = "zen"
 launcher = "rofi -show drun"
 editor = os.getenv("EDITOR") or "nvim"
-visual_editor = "code"
+visual_editor = "code-insiders"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
-file_manager = "ranger"
+file_manager = "nautilus"
 screenshot_tool = "flameshot gui"
