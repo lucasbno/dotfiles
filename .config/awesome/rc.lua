@@ -5,17 +5,17 @@ gears = require("gears")
 awful = require("awful")
 beautiful = require("beautiful")
 
-local config_file = io.open(os.getenv("HOME") .. "/.config/awesome-configs/custom/current-config", "r")
+local config_file = io.open(os.getenv("HOME") .. "/.config/awesome/current-config", "r")
 local config_mode = "normal"
 if config_file then
-    config_mode = config_file:read("*line"):gsub("%s+", "") -- trim whitespace
+    config_mode = config_file:read("*line"):gsub("%s+", "")
     config_file:close()
 end
 
 if config_mode == "minimal" then
-    beautiful.init('~/.config/awesome-configs/custom/theme/minimal.lua')
+    beautiful.init('~/.config/awesome/theme/minimal.lua')
 else
-    beautiful.init('~/.config/awesome-configs/custom/theme/normal.lua')
+    beautiful.init('~/.config/awesome/theme/normal.lua')
 end
 
 bling = require("bling")
