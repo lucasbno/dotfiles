@@ -1,14 +1,15 @@
 #!/bin/bash
 
+sleep 0.5 &
 nitrogen --restore &
 # if ! pgrep -x pipewire > /dev/null; then
 #     pipewire &
 #     pipewire-pulse &
 # fi
-pkill -x pipewire
-pkill -x pipewire-pulse
-pipewire &
-pipewire-pulse &
+# pkill -x pipewire
+# pkill -x pipewire-pulse
+# pipewire &
+# pipewire-pulse &
 xset r rate 220 40 &
 xmodmap ~/.Xmodmap &
 xcape -e 'Hyper_L=Escape' -t 100 &

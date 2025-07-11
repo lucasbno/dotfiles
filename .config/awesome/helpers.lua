@@ -118,4 +118,21 @@ function helpers.view_nonempty(i, screen)
         end
 end
 
+function helpers.trim(input)
+    local result = input:gsub("%s+", "")
+    return string.gsub(result, "%s+", "")
+end
+
+function helpers.get_colorized_markup(content, fg)
+    fg = fg or beautiful.blue
+    content = content or ''
+
+    return '<span foreground="' .. fg .. '">' .. content .. '</span>'
+end
+
+function helpers.capitalize (txt)
+    return string.upper(string.sub(txt, 1, 1))
+        .. string.sub(txt, 2, #txt)
+end
+
 return helpers

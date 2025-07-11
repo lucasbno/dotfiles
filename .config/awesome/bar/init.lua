@@ -8,7 +8,9 @@ local helpers = require 'helpers'
 local markup = lain.util.markup
 
 require 'bar.calendar'
+require 'bar.powermenu'
 local music = require 'bar.music'
+local keyboard = require 'bar.keyboard'
 
 ------------------------------Tags--------------------------------------
 
@@ -225,7 +227,12 @@ screen.connect_signal('request::desktop_decoration', function(s)
                 music,
                 widget = wibox.container.margin,
                 left = 12
-            }
+            },
+            {
+                keyboard,
+                widget = wibox.container.margin,
+                left = 4
+            },
             -- s.mypromptbox
         },
         -- s.mytasklist, -- Middle widget
