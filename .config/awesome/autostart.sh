@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sleep 0.5 &
 nitrogen --restore &
 # if ! pgrep -x pipewire > /dev/null; then
 #     pipewire &
